@@ -1,0 +1,219 @@
+<!DOCTYPE html>
+<html lang="pt">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="robots" content="noindex, nofollow">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Requisitar Equipamento - CIMA EquipmentHUB</title>
+    <link rel="icon" href="../icons/cimalg.ico">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Fira+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+    <link rel="stylesheet" href="../css/style.css">
+</head>
+
+<body>
+
+    <script>
+        if (localStorage.getItem('theme') === 'dark') {
+            document.body.classList.add('dark-mode');
+        }
+    </script>
+
+    <header>
+
+        <div class="logo">
+            <!-- Logo -->
+            <a href="../index.html">
+                <img src="../images/cimalogo.png" alt="CIMA Logo">
+            </a>
+        </div>
+
+        <button id="menu-toggle" class="menu-toggle" aria-label="Abrir menu">
+            <span></span>
+            <span></span>
+            <span></span>
+        </button>
+
+        <nav class="navbar" id="navbar">
+
+            <ul class="menu">
+                <li class="menu-actions">
+                    <div class="search-mini" id="search-mini">
+                        <button type="button" class="search-icon-btn" id="search-icon-btn" aria-label="Pesquisar">
+                            <svg viewBox="0 0 24 24" width="18" height="18">
+                                <circle cx="11" cy="11" r="7" fill="none" stroke="currentColor" stroke-width="2"/>
+                                <line x1="21" y1="21" x2="16.65" y2="16.65" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+                            </svg>
+                        </button>
+                        <input type="text" class="search-mini-input" id="search-mini-input" placeholder="Pesquisar...">
+                        <div class="search-mini-results" id="search-mini-results"></div>
+                    </div>
+                    <button id="theme-toggle" class="theme-toggle" aria-label="Alternar modo escuro">
+                    <svg viewBox="0 0 24 24" width="20" height="20">
+                        <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z" 
+                            fill="none" stroke="currentColor" stroke-width="2" 
+                            stroke-linecap="round" stroke-linejoin="round"/>
+                    </svg>
+                </button>
+                <a href="../EN/paginas/reqform.html" class="lang-switch">EN</a>
+                </li>
+
+                <li class="dropdown">
+                    <a href="#">Equipamentos ▾</a>
+                    <ul class="dropdown-menu">
+                        <li><a href="../paginas/equipment.html">Todos os Equipamentos</a></li>
+                        <li><a href="../paginas/eanalitico.html">Equipamentos Analíticos</a></li>
+                        <li><a href="../paginas/elab.html">Equipamentos de Laboratório</a></li>
+                        <li><a href="../paginas/ecampo.html">Equipamentos de Campo</a></li>
+                    </ul>
+                </li>
+
+                <li class="dropdown">
+                    <a href="#">Técnicos ▾</a>
+                    <ul class="dropdown-menu">
+                        <li><a href="../paginas/margarida.html">Margarida Ramires</a></li>
+                        <li><a href="../paginas/rodrigo.html">Rodrigo Borges</a></li>
+                    </ul>
+                </li>
+
+
+                <li class="dropdown">
+                    <a href="#">Documentação ▾</a>
+                    <ul class="dropdown-menu">
+                        <li><a href="../paginas/analises.html">Análises</a></li>
+                        <li><a href="../paginas/manuais.html">Manuais de Equipamentos</a></li>
+                        <li><a href="../paginas/rstock.html">Stocks de Reagentes</a></li>
+                    </ul>
+                </li>
+
+            </ul>
+
+        </nav>
+
+    </header>
+
+    <main>
+        <nav class="breadcrumbs">
+            <a href="../index.html">Início</a>
+            <span class="separator">›</span>
+            <span class="current">Requisitar Equipamento</span>
+        </nav>
+
+        <section class="hero">
+            <div class="hero-content">
+                <div class="equipment-text">
+
+                    <h1>Requisitar Equipamento</h1>
+                    <p>Preencha o formulário abaixo para submeter um pedido de requisição.</p>
+                    <p>Verifique se o equipamento que deseja requisitar se encontra disponível na data que pretende.</p>
+                    <p><strong>Importante:</strong> É necessário um mínimo de <strong>2 dias</strong> de antecedência para qualquer requisição.</p>
+                    <details>
+                        <summary>Informações Importantes</summary>
+                        <p></p>
+                        <p>A verificação do estado e funcionamento dos equipamentos de campo é da responsabilidade do utilizador antes da sua utilização. Esta verificação inclui o teste geral do equipamento, a confirmação do estado da bateria e a validação da calibração, quando aplicável. Devido às características destes equipamentos, podem ocorrer pequenas avarias, desvios ou necessidade de ajustes mesmo após períodos prolongados de inatividade. Qualquer anomalia, dano ou irregularidade identificada durante a utilização deverá ser comunicada aos técnicos responsáveis no momento da devolução do equipamento, permitindo a sua avaliação e resolução com a maior brevidade possível.</p>
+                        <p></p>
+                        <p>Para equipamentos analíticos cuja operação é realizada exclusivamente pelos técnicos, a preparação das amostras é da responsabilidade do requisitante. Os consumíveis e reagentes necessários à realização das análises serão geridos pelos técnicos responsáveis. Sempre que o laboratório disponha dos reagentes necessários em stock, poderá ser acordada com o requisitante uma contribuição sob a forma de reagentes ou consumíveis equivalentes, destinados a apoiar o funcionamento de outros equipamentos ou a realização de outras análises, contribuindo assim para a manutenção e o bom funcionamento geral do centro.</p>
+                    </details>
+                
+                </div>
+
+                <form id="form-requisicao" class="request-form">
+
+                    <div class="form-group">
+                        <label for="equipamento">Equipamento *</label>
+                        <select id="equipamento" name="equipamento" required>
+                            <option value="" disabled selected>Seleciona um equipamento</option>
+                            <option value="flashsmart">Analizador Elementar FlashSmart</option>
+                            <option value="SEAL_AQ400">Analizador de Nutrientes SEAL AQ400</option>
+                            <option value="malvern">Analizador de Partículas Malvern Mastersizer 3000</option>
+                            <option value="wac60">Autoclave Maxterile 60</option>
+                            <option value="gyrozen">Centrífuga Gyrozen GZ-2236 R</option>
+                            <option value="tr8s">DGPS Trimble R8s</option>
+                            <option value="tr12i">DGPS Trimble R12</option>
+                            <option value="summit">FTIR Nicolet Summit</option>
+                            <option value="tr6">GPS Trimble R6</option>
+                            <option value="tristar5">Leitor de Placas Berthold Tristar 5</option>
+                            <option value="visiscope">Microscópio de Fluorescência VisiScope IT600FLD</option> 
+                            <option value="f6020c">Mufla Thermolyne F6020C-33</option>
+                            <option value="cfxopus">Real-Time PCR Bio-Rad CFX Opus 96 Dx</option>
+                            <option value="echoer">Respirometro ECHO ER</option>
+                            <option value="chemidoc">Scan de Géis Bio-Rad Chemidoc</option>
+                            <option value="hq2100">Sonda Hach HQ2100</option>
+                            <option value="hi98594">Sonda Hanna Hi98594</option>
+                            <option value="ox4110h">Sonda VWR pHenomenal OX 4110 H</option>
+                            <option value="exo2">Sonda YSI EXO2</option>
+                            <option value="infinitywh">Transdutor de Pressão JFE Advantech Infinity AWH-USB</option>
+                            <option value="uhplc">UHPLC UltiMate™ 3000</option>
+                        </select>
+                    </div>
+
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label for="data-inicio">Data de Início *</label>
+                            <input type="date" id="data-inicio" name="data-inicio" required>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="data-fim">Data de Fim *</label>
+                            <input type="date" id="data-fim" name="data-fim" required>
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="requisitante">Requisitante *</label>
+                        <input type="text" id="requisitante" name="requisitante" placeholder="Nome do requisitante" required>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="email-requisitante">Email do Requisitante *</label>
+                        <input type="email" id="email-requisitante" name="email-requisitante" placeholder="nome@ualg.pt" required>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="responsavel">Responsável (opcional)</label>
+                        <input type="text" id="responsavel" name="responsavel" placeholder="Nome do responsável ou superior, se aplicável">
+                    </div>
+
+                    <div class="form-group">
+                        <label for="enquadramento">Enquadramento da Utilização *</label>
+                        <textarea id="enquadramento" name="enquadramento" rows="3" placeholder="ex. saída de campo na ria, recolha de amostras no sapal, análise de nutrientes em água do mar..." required></textarea>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="observacoes">Observações (opcional)</label>
+                        <textarea id="observacoes" name="observacoes" rows="3" placeholder="Informação adicional relevante"></textarea>
+                    </div>
+
+                    <button type="submit" class="submit-btn" id="submit-btn">Submeter Pedido</button>
+
+                    <p id="form-status" class="form-status"></p>
+
+                </form>
+
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <div class="footer-content">
+            <div class="footer-logos">
+                <img src="../images/cimafooter_preto.png" alt="CIMA" class="logo-light">
+                <img src="../images/cimafooter_branco.png" alt="CIMA" class="logo-dark">
+                <img src="../images/arnetfooter_preto.png" alt="ARNET" class="logo-light">
+                <img src="../images/arnetfooter_branco.png" alt="ARNET" class="logo-dark">
+                <img src="../images/ualgfooter_preto.png" alt="Universidade do Algarve" class="logo-light">
+                <img src="../images/ualgfooter_branco.png" alt="Universidade do Algarve" class="logo-dark">
+            </div>
+            <div class="footer-year">
+                <p>© 2026</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="../js/app.js"></script>
+</body>
+</html>

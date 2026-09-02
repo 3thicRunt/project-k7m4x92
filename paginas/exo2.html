@@ -1,0 +1,476 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <!-- Basic Information -->
+    <meta charset="UTF-8">
+    <meta name="robots" content="noindex, nofollow">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Sonda YSI EXO2</title>
+    <meta name="description" content="CIMA EquipmentHUB - Centre for Marine and Environmental Research">
+    <meta name="author" content="CIMA">
+
+    <!-- Favicon -->
+    <link rel="icon" href="../icons/cimalg.ico">
+
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+    <link href="https://fonts.googleapis.com/css2?family=Fira+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+    
+    <!-- CSS -->
+    <link rel="stylesheet" href="../css/style.css">
+
+</head>
+
+<body>
+
+    <script>
+        if (localStorage.getItem('theme') === 'dark') {
+            document.body.classList.add('dark-mode');
+        }
+    </script>
+
+    <!-- ========================= -->
+    <!-- HEADER -->
+    <!-- ========================= -->
+    <header>
+
+        <div class="logo">
+            <!-- Logo -->
+            <a href="../index.html">
+                <img src="../images/cimalogo.png" alt="CIMA Logo">
+            </a>
+        </div>
+
+        <button id="menu-toggle" class="menu-toggle" aria-label="Abrir menu">
+            <span></span>
+            <span></span>
+            <span></span>
+        </button>
+
+        <nav class="navbar" id="navbar">
+
+            <ul class="menu">
+                <li class="menu-actions">
+                    <div class="search-mini" id="search-mini">
+                        <button type="button" class="search-icon-btn" id="search-icon-btn" aria-label="Pesquisar">
+                            <svg viewBox="0 0 24 24" width="18" height="18">
+                                <circle cx="11" cy="11" r="7" fill="none" stroke="currentColor" stroke-width="2"/>
+                                <line x1="21" y1="21" x2="16.65" y2="16.65" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+                            </svg>
+                        </button>
+                        <input type="text" class="search-mini-input" id="search-mini-input" placeholder="Pesquisar...">
+                        <div class="search-mini-results" id="search-mini-results"></div>
+                    </div>
+                    <button id="theme-toggle" class="theme-toggle" aria-label="Alternar modo escuro">
+                    <svg viewBox="0 0 24 24" width="20" height="20">
+                        <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z" 
+                            fill="none" stroke="currentColor" stroke-width="2" 
+                            stroke-linecap="round" stroke-linejoin="round"/>
+                    </svg>
+                </button>
+                <a href="../EN/paginas/exo2.html" class="lang-switch">EN</a>
+                </li>
+
+                <li class="dropdown">
+                    <a href="#">Equipamentos ▾</a>
+                    <ul class="dropdown-menu">
+                        <li><a href="../paginas/equipment.html">Todos os Equipamentos</a></li>
+                        <li><a href="../paginas/eanalitico.html">Equipamentos Analíticos</a></li>
+                        <li><a href="../paginas/elab.html">Equipamentos de Laboratório</a></li>
+                        <li><a href="../paginas/ecampo.html">Equipamentos de Campo</a></li>
+                    </ul>
+                </li>
+
+                <li class="dropdown">
+                    <a href="#">Técnicos ▾</a>
+                    <ul class="dropdown-menu">
+                        <li><a href="../paginas/margarida.html">Margarida Ramires</a></li>
+                        <li><a href="../paginas/rodrigo.html">Rodrigo Borges</a></li>
+                    </ul>
+                </li>
+
+
+                <li class="dropdown">
+                    <a href="#">Documentação ▾</a>
+                    <ul class="dropdown-menu">
+                        <li><a href="../paginas/analises.html">Análises</a></li>
+                        <li><a href="../paginas/manuais.html">Manuais de Equipamentos</a></li>
+<li><a href="../paginas/rstock.html">Stocks de Reagentes</a></li>
+                    </ul>
+                </li>
+
+            </ul>
+
+        </nav>
+
+    </header>
+
+    </header>
+
+    <!-- ========================= -->
+    <!-- MAIN CONTENT -->
+    <!-- ========================= -->
+    <main>
+        <nav class="breadcrumbs">
+            <a href="../index.html">Início</a>
+            <span class="separator">›</span>
+            <a href="../paginas/ecampo.html">Equipamentos de Campo</a>
+            <span class="separator">›</span>
+            <span class="current">Sonda YSI EXO2</span>
+        </nav>
+        <!-- Hero Section -->
+        <section class="hero">
+
+                <div class="hero-content">
+
+                    <div class="equipment-description">
+
+                        <h1>Sonda Multiparamétrica YSI EXO2</h1>
+
+
+                        <div class="equipment-layout">
+                            <div class="infobox">
+                                <img src="../images/exo2.png" alt="YSI EXO2">
+    
+                                <table class="infobox-table">
+                                    <tr>
+                                        <th colspan="2">Sonda YSI EXO2</th>
+                                    </tr>
+                                    <tr>
+                                        <td class="label">Localização:</td>
+                                        <td>Lab. 1.87 Edf. 7</td>
+                                    </tr>
+                                    <tr>
+                                        <td class="label">Responsável:</td>
+                                        <td><a href="../paginas/margarida.html">Margarida Ramires</a></td>
+                                    </tr>
+                                    <tr>
+                                        <td class="label">Operador:</td>
+                                        <td>Utilizador</td>
+                                    </tr>
+                                    <tr>
+                                        <td class="label">Princípio de Funcionamento:</td>
+                                        <td>Sensores</td>
+                                    </tr>
+                                    <tr>
+                                        <td class="label">Fabricante:</td>
+                                        <td>YSI Inc. (Xylem Inc.)</td>
+                                    </tr>
+                                    <tr>
+                                        <td class="label">Modelo:</td>
+                                        <td>EXO2</td>
+                                    </tr>
+                                    <tr>
+                                        <td class="label">Tipo:</td>
+                                        <td>Sonda Multiparamétrica</td>
+                                    </tr>
+                                    <tr>
+                                        <td class="label">Website:</td>
+                                        <td><a href="https://www.ysi.com/exo2?utm_source=chatgpt.com" target="_blank">YSI (Xylem)</a></td>
+                                    </tr>
+                                </table>
+                            </div>
+
+                            <div class="equipment-text">
+
+                                <p>
+                                    A YSI EXO2 Multiparameter Water Quality Sonde é uma sonda multiparamétrica de elevada precisão desenvolvida para a monitorização da qualidade da água em ambientes de água doce, estuarinos e marinhos. Concebida para medições em campo e monitorização contínua, permite a aquisição simultânea de múltiplos parâmetros físico-químicos, sendo amplamente utilizada em estudos ambientais, monitorização costeira, limnologia, oceanografia e gestão de recursos hídricos.
+                                </p>
+                        
+                                <p>
+                                    O sistema possui uma arquitetura modular com sete portas universais para sensores, permitindo configurar a sonda de acordo com as necessidades de cada campanha de amostragem. Dependendo da configuração instalada, é possível medir parâmetros como temperatura, condutividade, salinidade, oxigénio dissolvido, pH, potencial de oxidação-redução (ORP), turbidez, clorofila, ficocianina, ficoeritrina, matéria orgânica dissolvida fluorescente (fDOM), nitrato, amónio e cloreto. Os sensores são automaticamente reconhecidos pela sonda, facilitando a instalação, calibração e substituição.                      
+                                </p>
+
+                                <p>
+                                    A EXO2 incorpora um sistema central de limpeza automática (anti-fouling wiper) que remove biofilmes e sedimentos acumulados sobre os sensores durante campanhas prolongadas, reduzindo a necessidade de manutenção e garantindo maior estabilidade e fiabilidade das medições ao longo do tempo. A construção em titânio e materiais resistentes à corrosão permite a utilização em ambientes aquáticos exigentes, incluindo águas salinas e monitorizações de longa duração.
+                                </p>
+
+                                <p>
+                                    A comunicação pode ser efetuada através de Bluetooth®, RS-485 ou outros analises industriais, sendo compatível com o software Kor™ Desktop e Kor™ Mobile, que permitem configurar campanhas de monitorização, calibrar sensores, visualizar dados em tempo real e exportar resultados para posterior análise. A memória interna e o baixo consumo energético permitem implementações autónomas durante vários meses, tornando a EXO2 adequada para monitorização contínua em estações fixas, boias oceanográficas ou campanhas de campo.
+                                </p>
+
+                                <details>
+                                    <summary>Calendário / Disponibilidade</summary>
+                                    <div class="calendar-embed">
+                                        <iframe src="https://calendar.google.com/calendar/embed?src=5575d468eb452d311c6b2013aba907e630307eb5fbddae7d3681908fcc4ccbf4%40group.calendar.google.com&ctz=Europe%2FLisbon" 
+                                            style="border: 0" 
+                                            width="100%" 
+                                            height="450" 
+                                            frameborder="0" 
+                                            scrolling="no">
+                                        </iframe>
+                                    </div>
+                                    <a href="../paginas/reqform.html?equipamento=exo2" class="submit-btn requisitar-btn">
+                                        Requisitar
+                                    </a>
+                                </details>
+
+                                <details>
+                                    <summary>Principais Aplicações</summary>
+                                    
+                                        <ul>
+                                            <li>Monotorização da qualidade da água;</li>
+                                            <li>Estudos oceanográficos;</li>
+                                            <li>Avaliação de ecossistemas aquáticos;</li>
+                                            <li>Estudos limnológicos;</li>
+                                            <li>Avaliação de impactos ambientais;</li>
+                                            <li>Campanhas de campo;</li>
+                                            <li>Monitorização contínua em boias e plataformas fixas;</li>
+                                        </ul>
+                                </details>
+
+                                <details>
+                                    <summary>Tipos de Amostra
+                                    </summary>
+                                        <ul>
+                                            <li>Água do mar;</li>
+                                            <li>Água estuarina;</li>
+                                            <li>Água doce;</li>
+                                        </ul>
+                                </details>
+
+                                <details>
+                                    <summary>
+                                        Principais Vantagens:
+                                    </summary>
+
+                                        <ul>
+                                            <li>Medição simultânea de múltiplos parâmetros físico-químicos;</li>
+                                            <li>Arquitetura modular com sensores intercambiáveis;</li>
+                                            <li>Sistema automático de limpeza dos sensores (Central Wiper) para reduzir bioincrustação;</li>
+                                            <li>Elevada precisão e estabilidade das medições;</li>
+                                            <li>Construção robusta com componentes em titânio resistentes à corrosão;</li>
+                                            <li>Adequada para monitorização contínua e campanhas de longa duração;</li>
+                                            <li>Comunicação por Bluetooth® e interfaces industriais;</li>
+                                            <li>Memória interna para aquisição autónoma de dados;</li>
+                                            <li>Configuração e calibração simplificadas através do software Kor™;</li>
+                                            <li>Compatível com monitorização em água doce, estuarina e marinha</li>
+                                            <li>Elevada resistência à pressão, permitindo operações até 250 m de profundidade;</li>
+                                        </ul>
+                                </details>
+
+                                <details>
+                                    <summary>Sensores:</summary>
+                                    <table class="spec-table2">
+                                        <tr>
+                                            <th>Sensor</th>
+                                            <th>Estado</th>
+                                        </tr>
+                                        <tr>
+                                            <td>Temperatura</td>
+                                            <td>Instalado</td>
+                                        </tr>
+                                        <tr>
+                                            <td>Condutividade</td>
+                                            <td>Instalado</td>
+                                        </tr>
+                                        <tr>
+                                            <td>Salinidade</td>
+                                            <td>Instalado</td>
+                                        </tr>
+                                        <tr>
+                                            <td>Oxigénio Dissolvido (Ótico)</td>
+                                            <td>Instalado</td>
+                                        </tr>
+                                        <tr>
+                                            <td>pH</td>
+                                            <td>Instalado</td>
+                                        </tr>
+                                        <tr>
+                                            <td>ORP (Potêncial Redox)</td>
+                                            <td>Instalado</td>
+                                        </tr>
+                                        <tr>
+                                            <td>Turbidez</td>
+                                            <td>Instalado</td>
+                                        </tr>
+                                        <tr>
+                                            <td>Clorofila-a</td>
+                                            <td>Instalado</td>
+                                        </tr>
+                                        <tr>
+                                            <td>Ficocianina</td>
+                                            <td>Instalado</td>
+                                        </tr>
+                                        <tr>
+                                            <td>Ficoeritrina</td>
+                                            <td>Instalado</td>
+                                        </tr>
+                                        <tr>
+                                            <td>fDOM / CDOM</td>
+                                            <td>Instalado</td>
+                                        </tr>
+                                        <tr>
+                                            <td>Nitrato (UV)</td>
+                                            <td>Disponível para compra</td>
+                                        </tr>
+                                        <tr>
+                                            <td>Nitrato (ISE)</td>
+                                            <td>Disponível para compra</td>
+                                        </tr>
+                                        <tr>
+                                            <td>Amónio (ISE)</td>
+                                            <td>Disponível para compra</td>
+                                        </tr>
+                                        <tr>
+                                            <td>Amónia</td>
+                                            <td>Disponível para compra</td>
+                                        </tr>
+                                        <tr>
+                                            <td>Cloreto (ISE)</td>
+                                            <td>Disponível para compra</td>
+                                        </tr>
+                                        <tr>
+                                            <td>Rodamina WT</td>
+                                            <td>Disponível para compra</td>
+                                        </tr>
+                                        <tr>
+                                            <td>PAR (Radiação Fotossintenticamente Ativa)</td>
+                                            <td>Disponível para compra</td>
+                                        </tr>
+                                        <tr>
+                                            <td>Sensor de Profundidade</td>
+                                            <td>Disponível para compra</td>
+                                        </tr>
+
+                                    </table>
+                                </details>
+
+                                <details>
+                                    <summary>Específicações Técnicas:</summary>
+
+                                <table class="spec-table2">
+                                    <tr>
+                                        <th>Específicação</th>
+                                        <th>Valor</th>
+                                    </tr>
+                                    <tr>
+                                        <td>Fabricante</td>
+                                        <td>YSI Inc. (Xylem Inc.)</td>
+                                    </tr>
+                                    <tr>
+                                        <td>Modelo</td>
+                                        <td>EXO2</td>
+                                    </tr>
+                                    <tr>
+                                        <td>Software</td>
+                                        <td>Kor™</td>
+                                    </tr>
+                                    <tr>
+                                        <td>Número de Portas para Sensores</td>
+                                        <td>7 portas universais</td>
+                                    </tr>
+                                    <tr>
+                                        <td>Sistema anti-incrustação</td>
+                                        <td>Escova central automática (Central Wiper)</td>
+                                    </tr>
+                                    <tr>
+                                        <td>Profundidade máxima</td>
+                                        <td>250 metros</td>
+                                    </tr>
+                                    <tr>
+                                        <td>Memória Interna</td>
+                                        <td>512 MB (>1 000 000 de registos)</td>
+                                    </tr>
+                                    <tr>
+                                        <td>Taxa máxima de aquisição</td>
+                                        <td>Até 4Hz</td>
+                                    </tr>
+                                    <tr>
+                                        <td>Calibração pelo utilizador</td>
+                                        <td>Sim</td>
+                                    </tr>
+                                    
+                                </table>
+
+
+                                </details>
+
+                                <details>
+                                    <summary>
+                                        Documentos:
+                                    </summary>
+
+                                    <div class="doc-links">
+                                        <a href="../docs/exo_um.pdf" target="_blank" class="doc-pill">
+                                            <svg viewBox="0 0 24 24" width="16" height="16">
+                                                <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                                                <polyline points="14 2 14 8 20 8" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                                            </svg>
+                                            Manual do Utilizador
+                                        </a>
+                                        <a href="../docs/exo2ss.pdf" target="_blank" class="doc-pill">
+                                            <svg viewBox="0 0 24 24" width="16" height="16">
+                                                <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                                                <polyline points="14 2 14 8 20 8" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                                            </svg>
+                                            Especificações
+                                        </a>
+                                    </div>
+
+                                </details>
+
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+        </section>
+
+        <!-- Search -->
+        <section id="search">
+
+        </section>
+
+        <!-- Equipment Categories -->
+        <section id="categories">
+
+        </section>
+
+        <!-- Statistics -->
+        <section id="statistics">
+
+        </section>
+
+        <!-- Latest News -->
+        <section id="news">
+
+        </section>
+
+    </main>
+
+    <!-- ========================= -->
+    <!-- FOOTER -->
+    <!-- ========================= -->
+    <footer>
+        <div class="footer-content">
+
+            <div class="footer-logos">
+                <img src="../images/cimafooter_preto.png" alt="CIMA" class="logo-light">
+                <img src="../images/cimafooter_branco.png" alt="CIMA" class="logo-dark">
+
+                <img src="../images/arnetfooter_preto.png" alt="ARNET" class="logo-light">
+                <img src="../images/arnetfooter_branco.png" alt="ARNET" class="logo-dark">
+
+                <img src="../images/ualgfooter_preto.png" alt="Universidade do Algarve" class="logo-light">
+                <img src="../images/ualgfooter_branco.png" alt="Universidade do Algarve" class="logo-dark">
+            </div>
+
+            <div class="footer-year">
+              <p>© 2026</p>
+         </div>
+
+        </div>
+
+    </footer>
+
+    <!-- JavaScript -->
+    <script src="../js/app.js"></script>
+
+</body>
+
+</html>
