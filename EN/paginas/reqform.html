@@ -1,0 +1,222 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="robots" content="noindex, nofollow">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Request Equipment - CIMA EquipmentHUB</title>
+    <link rel="icon" href="../../icons/cimalg.ico">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Fira+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+    <link rel="stylesheet" href="../../css/style.css">
+</head>
+
+<body>
+
+    <script>
+        if (localStorage.getItem('theme') === 'dark') {
+            document.body.classList.add('dark-mode');
+        }
+    </script>
+
+    <header>
+
+        <div class="logo">
+            <!-- Logo -->
+            <a href="../index.html">
+                <img src="../../images/cimalogo.png" alt="CIMA Logo">
+            </a>
+        </div>
+
+        <button id="menu-toggle" class="menu-toggle" aria-label="Abrir menu">
+            <span></span>
+            <span></span>
+            <span></span>
+        </button>
+
+        <nav class="navbar" id="navbar">
+
+            <ul class="menu">
+                <li class="menu-actions">
+                    <div class="search-mini" id="search-mini">
+                        <button type="button" class="search-icon-btn" id="search-icon-btn" aria-label="Pesquisar">
+                            <svg viewBox="0 0 24 24" width="18" height="18">
+                                <circle cx="11" cy="11" r="7" fill="none" stroke="currentColor" stroke-width="2"/>
+                                <line x1="21" y1="21" x2="16.65" y2="16.65" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+                            </svg>
+                        </button>
+                        <input type="text" class="search-mini-input" id="search-mini-input" placeholder="Search...">
+                        <div class="search-mini-results" id="search-mini-results"></div>
+                    </div>
+                    <button id="theme-toggle" class="theme-toggle" aria-label="Alternar modo escuro">
+                    <svg viewBox="0 0 24 24" width="20" height="20">
+                        <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z" 
+                            fill="none" stroke="currentColor" stroke-width="2" 
+                            stroke-linecap="round" stroke-linejoin="round"/>
+                    </svg>
+                </button>
+                <a href="../../paginas/reqform.html" class="lang-switch">PT</a>
+                </li>
+                
+                <li class="dropdown">
+                    <a href="#">Equipment ▾</a>
+                    <ul class="dropdown-menu">
+                        <li><a href="equipment.html">All Equipment</a></li>
+                        <li><a href="eanalitico.html">Analitical Equipment</a></li>
+                        <li><a href="elab.html">Laboratory Equipment</a></li>
+                        <li><a href="ecampo.html">Field Equipment</a></li>
+                    </ul>
+                </li>
+
+                <li class="dropdown">
+                    <a href="#">Technicians ▾</a>
+                    <ul class="dropdown-menu">
+                        <li><a href="margarida.html">Margarida Ramires</a></li>
+                        <li><a href="rodrigo.html">Rodrigo Borges</a></li>
+                    </ul>
+                </li>
+
+                <li class="dropdown">
+                    <a href="#">Documents ▾</a>
+                    <ul class="dropdown-menu">
+                        <li><a href="analises.html">Analysis</a></li>
+                        <li><a href="manuais.html">Equipment Manuals</a></li>
+                        <li><a href="rstock.html">Reagent Stocks</a></li>
+                    </ul>
+                </li>
+
+            </ul>
+
+        </nav>
+
+    </header>
+
+    <main>
+        <nav class="breadcrumbs">
+            <a href="../index.html">Home</a>
+            <span class="separator">›</span>
+            <span class="current">Request Equipment</span>
+        </nav>
+
+        <section class="hero">
+            <div class="hero-content">
+                <div class="equipment-text">
+                    <h1>Request Equipment</h1>
+                    <p>Please complete the form below to submit an equipment request.</p>
+                    <p>Please check that the equipment you wish to request is available on your preferred date.</p>
+                    <p><strong>Important:</strong> A minimum of <strong>two days</strong> advance is required for any request.</p>
+                    <details>
+                        <summary>Important Information</summary>
+                        <p></p>
+                        <p>The user is responsible for verifying the condition of the field equipment prior to use. This includes testing the equipment, checking the battery status, and confirming that the instrument is properly calibrated. Field equipment may develop minor faults or require adjustment, even after periods of inactivity. Any malfunction, damage, or irregularity identified during use must be reported to the technical staff upon return of the equipment so that it can be addressed as promptly as possible.</p>
+                        <p></p>
+                        <p>For analytical instruments operated exclusively by technical staff, sample preparation is the responsibility of the requester. The required consumables and reagents will be managed by the technical staff. If the necessary reagents are available in stock for the requested analysis, the requester may be asked to provide compensation in the form of equivalent reagents or consumables required for other instruments or analytical procedures, thereby supporting the continued operation of the laboratory.</p>
+                    </details>
+                </div>
+
+                <form id="form-requisicao" class="request-form">
+
+                    <div class="form-group">
+                        <label for="equipamento">Equipment *</label>
+                        <select id="equipamento" name="equipamento" required>
+                            <option value="" disabled selected>Select an equipment</option>
+                            <option value="tristar5">Berthold Tristar 5 Multiplate Reader</option>
+                            <option value="cfxopus">Bio-Rad CFX Opus 96 Dx Real-Time PCR</option>
+                            <option value="chemidoc">Bio-Rad ChemiDoc Gel Scan</option>
+                            <option value="tr8s">DGPS Trimble R8s</option>
+                            <option value="tr12i">DGPS Trimble R12i</option>
+                            <option value="echoer">ECHO ER Respirometer</option>
+                            <option value="flashsmart">FlashSmart Elemental Analyzer</option>
+                            <option value="tr6">GPS Trimble R6</option>
+                            <option value="gyrozen">Gyrozen GZ-2236 R Centrifuge</option>
+                            <option value="hq2100">Hach HQ2100 Probe</option>
+                            <option value="hi98594">Hanna Hi98594 Probe</option>
+                            <option value="infinitywh">JFE Advantech Infinity AWH-USB Water Pressure Wave Height Meter</option>
+                            <option value="malvern">Malvern Mastersizer 3000 Granulometric Analyzer</option>
+                            <option value="wac60">Maxterile 60 Autoclave</option>
+                            <option value="summit">Nicolet Summit FTIR</option>
+                            <option value="SEAL_AQ400">SEAL AQ400 Nutrient Analyzer</option>
+                            <option value="f6020c">Thermolyne F6020C-33 Muffle</option>
+                            <option value="uhplc">UltiMate™ 3000 UHPLC</option>
+                            <option value="visiscope">VisiScope IT600FLD Fluorescence Microscope</option>
+                            <option value="ox4110h">VWR pHenomenal OX 4110 H Dissolved Oxygen Analyzer</option>
+                            <option value="exo2">YSI EXO2 Probe</option>
+                        </select>
+                    </div>
+
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label for="data-inicio">Start Date *</label>
+                            <input type="date" id="data-inicio" name="data-inicio" required>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="data-fim">End Date *</label>
+                            <input type="date" id="data-fim" name="data-fim" required>
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="requisitante">Requester *</label>
+                        <input type="text" id="requisitante" name="requisitante" placeholder="Requester's name" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="email-requisitante">Requester's Email *</label>
+                        <input type="email" id="email-requisitante" name="email-requisitante" placeholder="name@ualg.pt" required>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="responsavel">Responsable (optional)</label>
+                        <input type="text" id="responsavel" name="responsavel" placeholder="Responsable or superior name, when applicable">
+                    </div>
+
+                    <div class="form-group">
+                        <label for="enquadramento">Use Purpose *</label>
+                        <textarea id="enquadramento" name="enquadramento" rows="3" placeholder="e.g. field work in ria, sample collection in the marsh, nutrient analysis for seawater samples..." required></textarea>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="observacoes">Observations (optional)</label>
+                        <textarea id="observacoes" name="observacoes" rows="3" placeholder="Relevant additional information"></textarea>
+                    </div>
+
+                    <button type="submit" class="submit-btn" id="submit-btn">Submit Request</button>
+
+                    <p id="form-status" class="form-status"></p>
+
+                </form>
+
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <div class="footer-content">
+
+           <div class="footer-logos">
+                <img src="../../images/cimafooter_preto.png" alt="CIMA" class="logo-light">
+                <img src="../../images/cimafooter_branco.png" alt="CIMA" class="logo-dark">
+
+                <img src="../../images/arnetfooter_preto.png" alt="ARNET" class="logo-light">
+                <img src="../../images/arnetfooter_branco.png" alt="ARNET" class="logo-dark">
+
+                <img src="../../images/ualgfooter_preto.png" alt="Universidade do Algarve" class="logo-light">
+                <img src="../../images/ualgfooter_branco.png" alt="Universidade do Algarve" class="logo-dark">
+            </div>
+
+            <div class="footer-year">
+              <p>© 2026</p>
+         </div>
+
+        </div>
+
+    </footer>
+
+    <!-- JavaScript -->
+    <script src="../../js/app_en.js"></script>
+</body>
+</html>

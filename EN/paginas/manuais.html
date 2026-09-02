@@ -1,0 +1,857 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <!-- Basic Information -->
+    <meta charset="UTF-8">
+    <meta name="robots" content="noindex, nofollow">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Equipment Manuals</title>
+    <meta name="description" content="CIMA EquipmentHUB - Centre for Marine and Environmental Research">
+    <meta name="author" content="CIMA">
+
+    <!-- Favicon -->
+    <link rel="icon" href="../../icons/cimalg.ico">
+
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+    <link href="https://fonts.googleapis.com/css2?family=Fira+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+    
+    <!-- CSS -->
+    <link rel="stylesheet" href="../../css/style.css">
+
+</head>
+
+<body>
+
+    <script>
+        if (localStorage.getItem('theme') === 'dark') {
+            document.body.classList.add('dark-mode');
+        }
+    </script>
+
+    <!-- ========================= -->
+    <!-- HEADER -->
+    <!-- ========================= -->
+    <header>
+
+        <div class="logo">
+            <!-- Logo -->
+            <a href="../index.html">
+                <img src="../../images/cimalogo.png" alt="CIMA Logo">
+            </a>
+        </div>
+
+        <button id="menu-toggle" class="menu-toggle" aria-label="Abrir menu">
+            <span></span>
+            <span></span>
+            <span></span>
+        </button>
+
+        <nav class="navbar" id="navbar">
+
+            <ul class="menu">
+                <li class="menu-actions">
+                    <div class="search-mini" id="search-mini">
+                        <button type="button" class="search-icon-btn" id="search-icon-btn" aria-label="Pesquisar">
+                            <svg viewBox="0 0 24 24" width="18" height="18">
+                                <circle cx="11" cy="11" r="7" fill="none" stroke="currentColor" stroke-width="2"/>
+                                <line x1="21" y1="21" x2="16.65" y2="16.65" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+                            </svg>
+                        </button>
+                        <input type="text" class="search-mini-input" id="search-mini-input" placeholder="Search...">
+                        <div class="search-mini-results" id="search-mini-results"></div>
+                    </div>
+                    <button id="theme-toggle" class="theme-toggle" aria-label="Alternar modo escuro">
+                    <svg viewBox="0 0 24 24" width="20" height="20">
+                        <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z" 
+                            fill="none" stroke="currentColor" stroke-width="2" 
+                            stroke-linecap="round" stroke-linejoin="round"/>
+                    </svg>
+                </button>
+                <a href="../../paginas/manuais.html" class="lang-switch">PT</a>
+                </li>
+                
+                <li class="dropdown">
+                    <a href="#">Equipment ▾</a>
+                    <ul class="dropdown-menu">
+                        <li><a href="equipment.html">All Equipment</a></li>
+                        <li><a href="eanalitico.html">Analitical Equipment</a></li>
+                        <li><a href="elab.html">Laboratory Equipment</a></li>
+                        <li><a href="ecampo.html">Field Equipment</a></li>
+                    </ul>
+                </li>
+
+                <li class="dropdown">
+                    <a href="#">Technicians ▾</a>
+                    <ul class="dropdown-menu">
+                        <li><a href="margarida.html">Margarida Ramires</a></li>
+                        <li><a href="rodrigo.html">Rodrigo Borges</a></li>
+                    </ul>
+                </li>
+
+                <li class="dropdown">
+                    <a href="#">Documents ▾</a>
+                    <ul class="dropdown-menu">
+                        <li><a href="analises.html">Analysis</a></li>
+                        <li><a href="manuais.html">Equipment Manuals</a></li>
+                        <li><a href="rstock.html">Reagent Stocks</a></li>
+                    </ul>
+                </li>
+
+            </ul>
+
+        </nav>
+
+    </header>
+
+    <!-- ========================= -->
+    <!-- MAIN CONTENT -->
+    <!-- ========================= -->
+    <main>
+        <nav class="breadcrumbs">
+            <a href="../index.html">Home</a>
+            <span class="separator">›</span>
+            <span class="current">Equipment Manuals</span>
+        </nav>
+        <!-- Hero Section -->
+        <section class="hero">
+
+                <div class="hero-content">
+                    <h1>Equipment Manuals</h1>
+                    <div class="manual-entry">
+                        <h3 class="manual-title">Berthold Tristar 5 Multiplate Reader</h3>
+                        <div class="manual-links">
+                            <a href="../../docs/bt5_opman.pdf" target="_blank" class="doc-pill">
+                                <svg viewBox="0 0 24 24" width="16" height="16">
+                                    <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                                    <polyline points="14 2 14 8 20 8" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                                </svg>
+                                Operating Manual
+                            </a>
+                            <a href="../../docs/bt5_br.pdf" target="_blank" class="doc-pill">
+                                <svg viewBox="0 0 24 24" width="16" height="16">
+                                    <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                                    <polyline points="14 2 14 8 20 8" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                                </svg>
+                                Datasheet
+                            </a>
+                        </div>
+                    </div>
+
+                    <div class="manual-entry">
+                        <h3 class="manual-title">Bio-Rad CFX Opus 96 Dx Real-Time PCR</h3>
+                        <div class="manual-links">
+                            <a href="../../docs/cfxopus-um.pdf" target="_blank" class="doc-pill">
+                                <svg viewBox="0 0 24 24" width="16" height="16">
+                                    <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                                    <polyline points="14 2 14 8 20 8" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                                </svg>
+                                Operating Manual
+                            </a>
+                            <a href="../../docs/cfxopus-sm.pdf" target="_blank" class="doc-pill">
+                                <svg viewBox="0 0 24 24" width="16" height="16">
+                                    <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                                    <polyline points="14 2 14 8 20 8" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                                </svg>
+                                Software Manual
+                            </a>
+                        </div>
+                    </div>
+
+                    <div class="manual-entry">
+                        <h3 class="manual-title">Bio-Rad ChemiDoc Gel Imaging System</h3>
+                        <div class="manual-links">
+                            <a href="../../docs/chemidoc-ug.pdf" target="_blank" class="doc-pill">
+                                <svg viewBox="0 0 24 24" width="16" height="16">
+                                    <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                                    <polyline points="14 2 14 8 20 8" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                                </svg>
+                                User Guide
+                            </a>
+                            <a href="../../docs/chemidock-qg.pdf" target="_blank" class="doc-pill">
+                                <svg viewBox="0 0 24 24" width="16" height="16">
+                                    <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                                    <polyline points="14 2 14 8 20 8" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                                </svg>
+                                Image Acquisition Quick Guide
+                            </a>
+                            <a href="../../docs/chemidock-qg2.pdf" target="_blank" class="doc-pill">
+                                <svg viewBox="0 0 24 24" width="16" height="16">
+                                    <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                                    <polyline points="14 2 14 8 20 8" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                                </svg>
+                                Multi Channel Image Acquisition Quick Guide
+                            </a>
+                            <a href="../../docs/chemidock-sfg.pdf" target="_blank" class="doc-pill">
+                                <svg viewBox="0 0 24 24" width="16" height="16">
+                                    <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                                    <polyline points="14 2 14 8 20 8" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                                </svg>
+                                Stain-Free Western Blotting Guide
+                            </a>
+                        </div>
+                    </div>
+
+                    <div class="manual-entry">
+                        <h3 class="manual-title">DGPS Trimble R8s</h3>
+                        <div class="manual-links">
+                            <a href="../../docs/r8s_ug.pdf" target="_blank" class="doc-pill">
+                                <svg viewBox="0 0 24 24" width="16" height="16">
+                                    <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                                    <polyline points="14 2 14 8 20 8" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                                </svg>
+                                User Guide
+                            </a>
+                            <a href="../../docs/r8s_dt.pdf" target="_blank" class="doc-pill">
+                                <svg viewBox="0 0 24 24" width="16" height="16">
+                                    <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                                    <polyline points="14 2 14 8 20 8" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                                </svg>
+                                Datasheet
+                            </a>
+                        </div>
+                    </div>
+
+                    <div class="manual-entry">
+                        <h3 class="manual-title">DGPS Trimble R12i</h3>
+                        <div class="manual-links">
+                            <a href="../../docs/r12i_ug.pdf" target="_blank" class="doc-pill">
+                                <svg viewBox="0 0 24 24" width="16" height="16">
+                                    <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                                    <polyline points="14 2 14 8 20 8" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                                </svg>
+                                User Guide
+                            </a>
+                            <a href="../../docs/r12i_dt.pdf" target="_blank" class="doc-pill">
+                                <svg viewBox="0 0 24 24" width="16" height="16">
+                                    <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                                    <polyline points="14 2 14 8 20 8" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                                </svg>
+                                Datasheet
+                            </a>
+                        </div>
+                    </div>
+
+                    <div class="manual-entry">
+                        <h3 class="manual-title">DJI Mavic 2 Pro Drone</h3>
+                        <div class="manual-links">
+                            <a href="../../docs/mavic2-um.pdf" target="_blank" class="doc-pill">
+                                <svg viewBox="0 0 24 24" width="16" height="16">
+                                    <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                                    <polyline points="14 2 14 8 20 8" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                                </svg>
+                                User Manual
+                            </a>
+                            <a href="../../docs/mavic2-qs.pdf" target="_blank" class="doc-pill">
+                                <svg viewBox="0 0 24 24" width="16" height="16">
+                                    <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                                    <polyline points="14 2 14 8 20 8" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                                </svg>
+                                Quick Start Guide
+                            </a>
+                        </div>
+                    </div>
+
+                    <div class="manual-entry">
+                        <h3 class="manual-title">DJI P4 Multispectral Drone</h3>
+                        <div class="manual-links">
+                            <a href="../../docs/p4multi-um.pdf" target="_blank" class="doc-pill">
+                                <svg viewBox="0 0 24 24" width="16" height="16">
+                                    <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                                    <polyline points="14 2 14 8 20 8" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                                </svg>
+                                User Manual
+                            </a>
+                            <a href="../../docs/p4multi-qs.pdf" target="_blank" class="doc-pill">
+                                <svg viewBox="0 0 24 24" width="16" height="16">
+                                    <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                                    <polyline points="14 2 14 8 20 8" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                                </svg>
+                                Quick Start Guide
+                            </a>
+                        </div>
+                    </div>
+
+                    <div class="manual-entry">
+                        <h3 class="manual-title">ECHO ER Respirometer</h3>
+                        <div class="manual-links">
+                            <a href="../../docs/echoer-um.pdf" target="_blank" class="doc-pill">
+                                <svg viewBox="0 0 24 24" width="16" height="16">
+                                    <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                                    <polyline points="14 2 14 8 20 8" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                                </svg>
+                                User Manual
+                            </a>
+                            <a href="../../docs/echoer-qsg.pdf" target="_blank" class="doc-pill">
+                                <svg viewBox="0 0 24 24" width="16" height="16">
+                                    <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                                    <polyline points="14 2 14 8 20 8" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                                </svg>
+                                Oven Quick Start Guide
+                            </a>
+                        </div>
+                    </div>
+
+                    <div class="manual-entry">
+                        <h3 class="manual-title">Fiocchetti BF80A Ice Maker</h3>
+                        <div class="manual-links">
+                            <a href="../../docs/pgsice-ds.pdf" target="_blank" class="doc-pill">
+                                <svg viewBox="0 0 24 24" width="16" height="16">
+                                    <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                                    <polyline points="14 2 14 8 20 8" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                                </svg>
+                                Datasheet
+                            </a>
+                        </div>
+                    </div>
+
+                    <div class="manual-entry">
+                        <h3 class="manual-title">Fiocchetti Medika 200 Touch Refrigerator</h3>
+                        <div class="manual-links">
+                            <a href="../../docs/medika200-ds.pdf" target="_blank" class="doc-pill">
+                                <svg viewBox="0 0 24 24" width="16" height="16">
+                                    <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                                    <polyline points="14 2 14 8 20 8" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                                </svg>
+                                Datasheet
+                            </a>
+                        </div>
+                    </div>
+
+                    <div class="manual-entry">
+                        <h3 class="manual-title">Fiocchetti Superpolo 480 -20°C Freezer</h3>
+                        <div class="manual-links">
+                            <a href="../../docs/superpolo-ds.pdf" target="_blank" class="doc-pill">
+                                <svg viewBox="0 0 24 24" width="16" height="16">
+                                    <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                                    <polyline points="14 2 14 8 20 8" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                                </svg>
+                                Datasheet
+                            </a>
+                        </div>
+                    </div>
+
+                    <div class="manual-entry">
+                        <h3 class="manual-title">FlashSmart Elemental Analyzer</h3>
+                        <div class="manual-links">
+                            <a href="../../docs/fs_manual.pdf" target="_blank" class="doc-pill">
+                                <svg viewBox="0 0 24 24" width="16" height="16">
+                                    <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                                    <polyline points="14 2 14 8 20 8" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                                </svg>
+                                CIMA's Manual
+                            </a>
+                            <a href="../../docs/fs_cookbook.pdf" target="_blank" class="doc-pill">
+                                <svg viewBox="0 0 24 24" width="16" height="16">
+                                    <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                                    <polyline points="14 2 14 8 20 8" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                                </svg>
+                                Cookbook
+                            </a>
+                            <a href="../../docs/fs_opman.pdf" target="_blank" class="doc-pill">
+                                <svg viewBox="0 0 24 24" width="16" height="16">
+                                    <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                                    <polyline points="14 2 14 8 20 8" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                                </svg>
+                                Operation Manual
+                            </a>
+                            <a href="../../docs/fs_spguide.pdf" target="_blank" class="doc-pill">
+                                <svg viewBox="0 0 24 24" width="16" height="16">
+                                    <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                                    <polyline points="14 2 14 8 20 8" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                                </svg>
+                                Sample Preparation Guide
+                            </a>
+                            <a href="../../docs/fs_esman.pdf" target="_blank" class="doc-pill">
+                                <svg viewBox="0 0 24 24" width="16" height="16">
+                                    <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                                    <polyline points="14 2 14 8 20 8" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                                </svg>
+                                EagerSmart Manual
+                            </a>
+                        </div>
+                    </div>
+
+                    <div class="manual-entry">
+                        <h3 class="manual-title">GPS Trimble R6</h3>
+                        <div class="manual-links">
+                            <a href="../../docs/r6_r8_ug.pdf" target="_blank" class="doc-pill">
+                                <svg viewBox="0 0 24 24" width="16" height="16">
+                                    <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                                    <polyline points="14 2 14 8 20 8" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                                </svg>
+                                User Guide
+                            </a>
+                        </div>
+                    </div>
+
+                    <div class="manual-entry">
+                        <h3 class="manual-title">Gyrozen GZ-2236 R Centrifuge</h3>
+                        <div class="manual-links">
+                            <a href="../../docs/gyrozen-um.pdf" target="_blank" class="doc-pill">
+                                <svg viewBox="0 0 24 24" width="16" height="16">
+                                    <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                                    <polyline points="14 2 14 8 20 8" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                                </svg>
+                                User Manual
+                            </a>
+                            <a href="../../docs/gyrozen-qg.pdf" target="_blank" class="doc-pill">
+                                <svg viewBox="0 0 24 24" width="16" height="16">
+                                    <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                                    <polyline points="14 2 14 8 20 8" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                                </svg>
+                                Quick Guide
+                            </a>
+                        </div>
+                    </div>
+
+                    <div class="manual-entry">
+                        <h3 class="manual-title">Hanna HI98594 Probe</h3>
+                        <div class="manual-links">
+                            <a href="../../docs/hi98594_im.pdf" target="_blank" class="doc-pill">
+                                <svg viewBox="0 0 24 24" width="16" height="16">
+                                    <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                                    <polyline points="14 2 14 8 20 8" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                                </svg>
+                                Instructions Manual
+                            </a>
+                            <a href="../../docs/hi98594_cat.pdf" target="_blank" class="doc-pill">
+                                <svg viewBox="0 0 24 24" width="16" height="16">
+                                    <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                                    <polyline points="14 2 14 8 20 8" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                                </svg>
+                                Catalogue
+                            </a>
+                        </div>
+                    </div>
+
+                    <div class="manual-entry">
+                        <h3 class="manual-title">Labbox OVF Ventilated Oven</h3>
+                        <div class="manual-links">
+                            <a href="../../docs/ovf-um.pdf" target="_blank" class="doc-pill">
+                                <svg viewBox="0 0 24 24" width="16" height="16">
+                                    <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                                    <polyline points="14 2 14 8 20 8" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                                </svg>
+                                User Manual
+                            </a>
+                            <a href="../../docs/ovf-ds.pdf" target="_blank" class="doc-pill">
+                                <svg viewBox="0 0 24 24" width="16" height="16">
+                                    <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                                    <polyline points="14 2 14 8 20 8" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                                </svg>
+                                Datasheet
+                            </a>
+                        </div>
+                    </div>
+                    
+                    <div class="manual-entry">
+                        <h3 class="manual-title">Malvern Mastersizer 3000 Granulometric Analyzer</h3>
+                        <div class="manual-links">
+                            <a href="../../docs/malvern-ug.pdf" target="_blank" class="doc-pill">
+                                <svg viewBox="0 0 24 24" width="16" height="16">
+                                    <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                                    <polyline points="14 2 14 8 20 8" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                                </svg>
+                                User Guide
+                            </a>
+                            <a href="../../docs/malvern-bg.pdf" target="_blank" class="doc-pill">
+                                <svg viewBox="0 0 24 24" width="16" height="16">
+                                    <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                                    <polyline points="14 2 14 8 20 8" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                                </svg>
+                                Basic Guide
+                            </a>
+                        </div>
+                    </div>
+
+                    <div class="manual-entry">
+                        <h3 class="manual-title">MaXterile 60 Autoclave</h3>
+                        <div class="manual-links">
+                            <a href="../../docs/wac60_om.pdf" target="_blank" class="doc-pill">
+                                <svg viewBox="0 0 24 24" width="16" height="16">
+                                    <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                                    <polyline points="14 2 14 8 20 8" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                                </svg>
+                                Operating Manual
+                            </a>
+                            <a href="../../docs/wac60_ds.pdf" target="_blank" class="doc-pill">
+                                <svg viewBox="0 0 24 24" width="16" height="16">
+                                    <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                                    <polyline points="14 2 14 8 20 8" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                                </svg>
+                                Datasheet
+                            </a>
+                        </div>
+                    </div>
+
+                    <div class="manual-entry">
+                        <h3 class="manual-title">Meling Biomedical DW-HL678HC -80° Freezer</h3>
+                        <div class="manual-links">
+                            <a href="../../docs/meling80-man.pdf" target="_blank" class="doc-pill">
+                                <svg viewBox="0 0 24 24" width="16" height="16">
+                                    <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                                    <polyline points="14 2 14 8 20 8" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                                </svg>
+                                User Manual
+                            </a>
+                            <a href="../../docs/meling80-cat.pdf" target="_blank" class="doc-pill">
+                                <svg viewBox="0 0 24 24" width="16" height="16">
+                                    <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                                    <polyline points="14 2 14 8 20 8" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                                </svg>
+                                Information Leaflet
+                            </a>
+                        </div>
+                    </div>
+
+                    <div class="manual-entry">
+                        <h3 class="manual-title">MilliporeSigma Synergy Ultrapure Water System</h3>
+                        <div class="manual-links">
+                            <a href="../../docs/milliq-um.pdf" target="_blank" class="doc-pill">
+                                <svg viewBox="0 0 24 24" width="16" height="16">
+                                    <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                                    <polyline points="14 2 14 8 20 8" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                                </svg>
+                                User Manual
+                            </a>
+                            <a href="../../docs/milliq-ds.pdf" target="_blank" class="doc-pill">
+                                <svg viewBox="0 0 24 24" width="16" height="16">
+                                    <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                                    <polyline points="14 2 14 8 20 8" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                                </svg>
+                                Datasheet
+                            </a>
+                        </div>
+                    </div>
+
+                    <div class="manual-entry">
+                        <h3 class="manual-title">Nicolet Summit FTIR</h3>
+                        <div class="manual-links">
+                            <a href="../../docs/ftir_manual.pdf" target="_blank" class="doc-pill">
+                                <svg viewBox="0 0 24 24" width="16" height="16">
+                                    <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                                    <polyline points="14 2 14 8 20 8" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                                </svg>
+                                CIMA's Manual
+                            </a>
+                            <a href="../../docs/ftir_ug.pdf" target="_blank" class="doc-pill">
+                                <svg viewBox="0 0 24 24" width="16" height="16">
+                                    <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                                    <polyline points="14 2 14 8 20 8" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                                </svg>
+                                User Guide
+                            </a>
+                            <a href="../../docs/ftir_opug.pdf" target="_blank" class="doc-pill">
+                                <svg viewBox="0 0 24 24" width="16" height="16">
+                                    <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                                    <polyline points="14 2 14 8 20 8" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                                </svg>
+                                OMNIC Paradigm Software Guide
+                            </a>
+                        </div>
+                    </div>
+
+                     <div class="manual-entry">
+                        <h3 class="manual-title">SEAL AQ400 Nutrient Analyzer</h3>
+                        <div class="manual-links">
+                            <a href="../../docs/acsoftman.pdf" target="_blank" class="doc-pill">
+                                <svg viewBox="0 0 24 24" width="16" height="16">
+                                    <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                                    <polyline points="14 2 14 8 20 8" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                                </svg>
+                                Sofware Manual
+                            </a>
+                            <a href="../../docs/aqopman.pdf" target="_blank" class="doc-pill">
+                                <svg viewBox="0 0 24 24" width="16" height="16">
+                                    <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                                    <polyline points="14 2 14 8 20 8" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                                </svg>
+                                Operation Manual
+                            </a>
+                            <a href="../../docs/aqmetlist.pdf" target="_blank" class="doc-pill">
+                                <svg viewBox="0 0 24 24" width="16" height="16">
+                                    <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                                    <polyline points="14 2 14 8 20 8" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                                </svg>
+                                Method Listing
+                            </a>
+                        </div>
+                    </div>
+
+                    <div class="manual-entry">
+                        <h3 class="manual-title">SonTek/YSI Triton Acoustic Doppler Velocimeter</h3>
+                        <div class="manual-links">
+                            <a href="../../docs/triton-om.pdf" target="_blank" class="doc-pill">
+                                <svg viewBox="0 0 24 24" width="16" height="16">
+                                    <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                                    <polyline points="14 2 14 8 20 8" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                                </svg>
+                                Operating Manual
+                            </a>
+                            <a href="../../docs/triton-sm.pdf" target="_blank" class="doc-pill">
+                                <svg viewBox="0 0 24 24" width="16" height="16">
+                                    <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                                    <polyline points="14 2 14 8 20 8" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                                </svg>
+                                Software Manual
+                            </a>
+                            <a href="../../docs/triton-ds.pdf" target="_blank" class="doc-pill">
+                                <svg viewBox="0 0 24 24" width="16" height="16">
+                                    <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                                    <polyline points="14 2 14 8 20 8" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                                </svg>
+                                Brochure / Datasheet
+                            </a>
+                        </div>
+                    </div>
+
+                    <div class="manual-entry">
+                        <h3 class="manual-title">Thermolyne F6020C-33 Muffle</h3>
+                        <div class="manual-links">
+                            <a href="../../docs/f6020c_um.pdf" target="_blank" class="doc-pill">
+                                <svg viewBox="0 0 24 24" width="16" height="16">
+                                    <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                                    <polyline points="14 2 14 8 20 8" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                                </svg>
+                                Operation Manual
+                            </a>
+                        </div>
+                    </div>
+
+                    <div class="manual-entry">
+                        <h3 class="manual-title">ThermoScientific TDE Series -80°C Freezer</h3>
+                        <div class="manual-links">
+                            <a href="../../docs/tdeseries80-man.pdf" target="_blank" class="doc-pill">
+                                <svg viewBox="0 0 24 24" width="16" height="16">
+                                    <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                                    <polyline points="14 2 14 8 20 8" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                                </svg>
+                                User Manual
+                            </a>
+                        </div>
+                    </div>
+
+                    <div class="manual-entry">
+                        <h3 class="manual-title">ThermoScientific TSX Series -80°C Freezer</h3>
+                        <div class="manual-links">
+                            <a href="../../docs/tsxseries80-man.pdf" target="_blank" class="doc-pill">
+                                <svg viewBox="0 0 24 24" width="16" height="16">
+                                    <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                                    <polyline points="14 2 14 8 20 8" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                                </svg>
+                                User Manual
+                            </a>
+                        </div>
+                    </div>
+
+                    <div class="manual-entry">
+                        <h3 class="manual-title">UltiMate™ 3000 UHPLC</h3>
+                        <div class="manual-links">
+                            <a href="../../docs/uhplc_manual.pdf" target="_blank" class="doc-pill">
+                                <svg viewBox="0 0 24 24" width="16" height="16">
+                                    <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                                    <polyline points="14 2 14 8 20 8" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                                </svg>
+                                CIMA's Manual
+                            </a>
+                            <a href="../../docs/uhplc_pumpman.pdf" target="_blank" class="doc-pill">
+                                <svg viewBox="0 0 24 24" width="16" height="16">
+                                    <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                                    <polyline points="14 2 14 8 20 8" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                                </svg>
+                                Pumps Manual
+                            </a>
+                            <a href="../../docs/uhplc_asman.pdf" target="_blank" class="doc-pill">
+                                <svg viewBox="0 0 24 24" width="16" height="16">
+                                    <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                                    <polyline points="14 2 14 8 20 8" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                                </svg>
+                                Autosampler Manual
+                            </a>
+                            <a href="../../docs/uhplc_colman.pdf" target="_blank" class="doc-pill">
+                                <svg viewBox="0 0 24 24" width="16" height="16">
+                                    <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                                    <polyline points="14 2 14 8 20 8" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                                </svg>
+                                Column Compartment Manual
+                            </a>
+                            <a href="../../docs/uhplc_dadman.pdf" target="_blank" class="doc-pill">
+                                <svg viewBox="0 0 24 24" width="16" height="16">
+                                    <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                                    <polyline points="14 2 14 8 20 8" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                                </svg>
+                                DAD Manual
+                            </a>
+                            <a href="../../docs/uhplc_fldman.pdf" target="_blank" class="doc-pill">
+                                <svg viewBox="0 0 24 24" width="16" height="16">
+                                    <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                                    <polyline points="14 2 14 8 20 8" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                                </svg>
+                                FLD Manual
+                            </a>
+                            <a href="../../docs/uhplc_nenhum.pdf" target="_blank" class="doc-pill">
+                                <svg viewBox="0 0 24 24" width="16" height="16">
+                                    <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                                    <polyline points="14 2 14 8 20 8" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                                </svg>
+                                IRD Manual
+                            </a>
+                            <a href="../../docs/uhplc_nenhum.pdf" target="_blank" class="doc-pill">
+                                <svg viewBox="0 0 24 24" width="16" height="16">
+                                    <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                                    <polyline points="14 2 14 8 20 8" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                                </svg>
+                                MS/MS Detector Manual
+                            </a>
+                        </div>
+                    </div>
+
+                    <div class="manual-entry">
+                        <h3 class="manual-title">TOH Echotrac CV100 Echo Sounder</h3>
+                        <div class="manual-links">
+                            <a href="../../docs/echotrac-tg.pdf" target="_blank" class="doc-pill">
+                                <svg viewBox="0 0 24 24" width="16" height="16">
+                                    <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                                    <polyline points="14 2 14 8 20 8" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                                </svg>
+                                Troubleshooting Guide
+                            </a>
+                            <a href="../../docs/echotrac-ds.pdf" target="_blank" class="doc-pill">
+                                <svg viewBox="0 0 24 24" width="16" height="16">
+                                    <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                                    <polyline points="14 2 14 8 20 8" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                                </svg>
+                                Datasheet
+                            </a>
+                        </div>
+                    </div>
+
+                    <div class="manual-entry">
+                        <h3 class="manual-title">VWR VisiScope IT600FLD Fluorescence Microscope</h3>
+                        <div class="manual-links">
+                            <a href="../../docs/visiscope-im.pdf" target="_blank" class="doc-pill">
+                                <svg viewBox="0 0 24 24" width="16" height="16">
+                                    <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                                    <polyline points="14 2 14 8 20 8" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                                </svg>
+                                Instructions Manual
+                            </a>
+                            <a href="../../docs/visiscope-ds.pdf" target="_blank" class="doc-pill">
+                                <svg viewBox="0 0 24 24" width="16" height="16">
+                                    <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                                    <polyline points="14 2 14 8 20 8" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                                </svg>
+                                Datasheet
+                            </a>
+                            <a href="../../docs/visicam-qg.pdf" target="_blank" class="doc-pill">
+                                <svg viewBox="0 0 24 24" width="16" height="16">
+                                    <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                                    <polyline points="14 2 14 8 20 8" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                                </svg>
+                                VisiCam - Quick Guide
+                            </a>
+                            <a href="../../docs/visicam-im.pdf" target="_blank" class="doc-pill">
+                                <svg viewBox="0 0 24 24" width="16" height="16">
+                                    <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                                    <polyline points="14 2 14 8 20 8" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                                </svg>
+                                VisiCam - Instructions Manual
+                            </a>
+                        </div>
+                    </div>
+
+                    <div class="manual-entry">
+                        <h3 class="manual-title">VWR LAG 314i Precision Balance</h3>
+                        <div class="manual-links">
+                            <a href="../../docs/lag314i-man.pdf" target="_blank" class="doc-pill">
+                                <svg viewBox="0 0 24 24" width="16" height="16">
+                                    <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                                    <polyline points="14 2 14 8 20 8" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                                </svg>
+                                User Manual
+                            </a>
+                        </div>
+                    </div>
+
+                    <div class="manual-entry">
+                        <h3 class="manual-title">YSI EXO2 Probe</h3>
+                        <div class="manual-links">
+                            <a href="../../docs/exo_um.pdf" target="_blank" class="doc-pill">
+                                <svg viewBox="0 0 24 24" width="16" height="16">
+                                    <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                                    <polyline points="14 2 14 8 20 8" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                                </svg>
+                                User Manual
+                            </a>
+                            <a href="../../docs/exo2ss.pdf" target="_blank" class="doc-pill">
+                                <svg viewBox="0 0 24 24" width="16" height="16">
+                                    <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                                    <polyline points="14 2 14 8 20 8" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                                </svg>
+                                Datasheet
+                            </a>
+                        </div>
+                    </div>
+
+                </div>
+        </section>
+
+        <!-- Search -->
+        <section id="search">
+
+        </section>
+
+        <!-- Equipment Categories -->
+        <section id="categories">
+
+        </section>
+
+
+        <!-- Statistics -->
+        <section id="statistics">
+
+        </section>
+
+        <!-- Latest News -->
+        <section id="news">
+
+        </section>
+
+    </main>
+
+    <!-- ========================= -->
+    <!-- FOOTER -->
+    <!-- ========================= -->
+    <footer>
+        <div class="footer-content">
+
+            <div class="footer-logos">
+                <img src="../../images/cimafooter_preto.png" alt="CIMA" class="logo-light">
+                <img src="../../images/cimafooter_branco.png" alt="CIMA" class="logo-dark">
+
+                <img src="../../images/arnetfooter_preto.png" alt="ARNET" class="logo-light">
+                <img src="../../images/arnetfooter_branco.png" alt="ARNET" class="logo-dark">
+
+                <img src="../../images/ualgfooter_preto.png" alt="Universidade do Algarve" class="logo-light">
+                <img src="../../images/ualgfooter_branco.png" alt="Universidade do Algarve" class="logo-dark">
+            </div>
+
+            <div class="footer-year">
+              <p>© 2026</p>
+         </div>
+
+        </div>
+
+    </footer>
+
+    <!-- JavaScript -->
+    <script src="../../js/app_en.js"></script>
+
+</body>
+
+</html>

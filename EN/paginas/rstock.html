@@ -1,0 +1,190 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <!-- Basic Information -->
+    <meta charset="UTF-8">
+    <meta name="robots" content="noindex, nofollow">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Reagent Stocks</title>
+    <meta name="description" content="CIMA EquipmentHUB - Centre for Marine and Environmental Research">
+    <meta name="author" content="CIMA">
+
+    <!-- Favicon -->
+    <link rel="icon" href="../../icons/cimalg.ico">
+
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+    <link href="https://fonts.googleapis.com/css2?family=Fira+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+    
+    <!-- CSS -->
+    <link rel="stylesheet" href="../../css/style.css">
+
+</head>
+
+<body>
+
+    <script>
+        if (localStorage.getItem('theme') === 'dark') {
+            document.body.classList.add('dark-mode');
+        }
+    </script>
+
+    <!-- ========================= -->
+    <!-- HEADER -->
+    <!-- ========================= -->
+    <header>
+
+        <div class="logo">
+            <!-- Logo -->
+            <a href="../index.html">
+                <img src="../../images/cimalogo.png" alt="CIMA Logo">
+            </a>
+        </div>
+
+        <button id="menu-toggle" class="menu-toggle" aria-label="Abrir menu">
+            <span></span>
+            <span></span>
+            <span></span>
+        </button>
+
+        <nav class="navbar" id="navbar">
+
+            <ul class="menu">
+                <li class="menu-actions">
+                    <div class="search-mini" id="search-mini">
+                        <button type="button" class="search-icon-btn" id="search-icon-btn" aria-label="Pesquisar">
+                            <svg viewBox="0 0 24 24" width="18" height="18">
+                                <circle cx="11" cy="11" r="7" fill="none" stroke="currentColor" stroke-width="2"/>
+                                <line x1="21" y1="21" x2="16.65" y2="16.65" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+                            </svg>
+                        </button>
+                        <input type="text" class="search-mini-input" id="search-mini-input" placeholder="Search...">
+                        <div class="search-mini-results" id="search-mini-results"></div>
+                    </div>
+                    <button id="theme-toggle" class="theme-toggle" aria-label="Alternar modo escuro">
+                    <svg viewBox="0 0 24 24" width="20" height="20">
+                        <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z" 
+                            fill="none" stroke="currentColor" stroke-width="2" 
+                            stroke-linecap="round" stroke-linejoin="round"/>
+                    </svg>
+                </button>
+                <a href="../../paginas/rstock.html" class="lang-switch">PT</a>
+                </li>
+                
+                <li class="dropdown">
+                    <a href="#">Equipment ▾</a>
+                    <ul class="dropdown-menu">
+                        <li><a href="equipment.html">All Equipment</a></li>
+                        <li><a href="eanalitico.html">Analitical Equipment</a></li>
+                        <li><a href="elab.html">Laboratory Equipment</a></li>
+                        <li><a href="ecampo.html">Field Equipment</a></li>
+                    </ul>
+                </li>
+
+                <li class="dropdown">
+                    <a href="#">Technicians ▾</a>
+                    <ul class="dropdown-menu">
+                        <li><a href="margarida.html">Margarida Ramires</a></li>
+                        <li><a href="rodrigo.html">Rodrigo Borges</a></li>
+                    </ul>
+                </li>
+
+                <li class="dropdown">
+                    <a href="#">Documents ▾</a>
+                    <ul class="dropdown-menu">
+                        <li><a href="analises.html">Analysis</a></li>
+                        <li><a href="manuais.html">Equipment Manuals</a></li>
+                        <li><a href="rstock.html">Reagent Stocks</a></li>
+                    </ul>
+                </li>
+
+            </ul>
+
+        </nav>
+
+    </header>
+
+    <!-- ========================= -->
+    <!-- MAIN CONTENT -->
+    <!-- ========================= -->
+    <main>
+        <nav class="breadcrumbs">
+            <a href="../index.html">Home</a>
+            <span class="separator">›</span>
+            <span class="current">Reagent Stocks</span>
+        </nav>
+        <!-- Hero Section -->
+        <section class="hero">
+            <div class="hero-content error-content">
+                <svg width="200px" height="200px" viewBox="0 0 512 512" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+                    <title>maintenance-info</title>
+                    <g id="Page-1" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+                        <g id="Combined-Shape" fill="#000000" transform="translate(42.666667, 58.666667)">
+                            <path d="M117.333333,48 C182.134744,48 234.666667,100.531923 234.666667,165.333333 C234.666667,177.516512 232.809822,189.266001 229.363697,200.314237 L346.710217,317.661885 C367.98629,338.937958 367.98629,373.433288 346.710217,394.709361 C325.434144,415.985434 290.938814,415.985434 269.662741,394.709361 L152.315234,277.363386 C141.266709,280.80971 129.516879,282.666667 117.333333,282.666667 C52.5319227,282.666667 7.10542736e-15,230.134744 7.10542736e-15,165.333333 C7.10542736e-15,152.827953 1.95635722,140.779505 5.57971243,129.477348 L61.0818825,184.888889 L111.319797,168.156815 C112.394454,166.856793 113.540203,165.595781 114.757044,164.37894 L116.379797,162.756188 C117.593198,161.542787 118.85052,160.400077 120.146646,159.328057 L136.888889,109.149054 L81.3212183,53.6298873 C92.6685218,49.9744211 104.770352,48 117.333333,48 Z M384,90.6666667 L384,218.666667 L341.333333,218.666667 L341.333333,90.6666667 L384,90.6666667 Z M362.666667,1.42108547e-14 C377.39426,1.42108547e-14 389.333333,11.9390733 389.333333,26.6666667 C389.333333,41.39426 377.39426,53.3333333 362.666667,53.3333333 C347.939073,53.3333333 336,41.39426 336,26.6666667 C336,11.9390733 347.939073,1.42108547e-14 362.666667,1.42108547e-14 Z"></path>
+                        </g>
+                    </g>
+                </svg>
+                <h1>This page is currently under construction.</h1>
+                <a href="../index.html" class="submit-btn">Back to Home</a>
+            </div>
+        </section>
+
+        <!-- Search -->
+        <section id="search">
+
+        </section>
+
+        <!-- Equipment Categories -->
+        <section id="categories">
+
+        </section>
+
+ 
+
+        <!-- Statistics -->
+        <section id="statistics">
+
+        </section>
+
+        <!-- Latest News -->
+        <section id="news">
+
+        </section>
+
+    </main>
+
+    <!-- ========================= -->
+    <!-- FOOTER -->
+    <!-- ========================= -->
+    <footer>
+        <div class="footer-content">
+
+            <div class="footer-logos">
+                <img src="../../images/cimafooter_preto.png" alt="CIMA" class="logo-light">
+                <img src="../../images/cimafooter_branco.png" alt="CIMA" class="logo-dark">
+
+                <img src="../../images/arnetfooter_preto.png" alt="ARNET" class="logo-light">
+                <img src="../../images/arnetfooter_branco.png" alt="ARNET" class="logo-dark">
+
+                <img src="../../images/ualgfooter_preto.png" alt="Universidade do Algarve" class="logo-light">
+                <img src="../../images/ualgfooter_branco.png" alt="Universidade do Algarve" class="logo-dark">
+            </div>
+            
+            <div class="footer-year">
+              <p>© 2026</p>
+         </div>
+
+        </div>
+
+    </footer>
+
+    <!-- JavaScript -->
+    <script src="../../js/app_en.js"></script>
+
+</body>
+
+</html>

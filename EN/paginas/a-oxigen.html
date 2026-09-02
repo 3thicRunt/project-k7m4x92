@@ -1,0 +1,371 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <!-- Basic Information -->
+    <meta charset="UTF-8">
+    <meta name="robots" content="noindex, nofollow">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Elemental Oxygen Analysis</title>
+    <meta name="description" content="CIMA EquipmentHUB - Centre for Marine and Environmental Research">
+    <meta name="author" content="CIMA">
+
+    <!-- Favicon -->
+    <link rel="icon" href="../../icons/cimalg.ico">
+
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+    <link href="https://fonts.googleapis.com/css2?family=Fira+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+    
+    <!-- CSS -->
+    <link rel="stylesheet" href="../../css/style.css">
+
+</head>
+
+<body>
+
+    <script>
+        if (localStorage.getItem('theme') === 'dark') {
+            document.body.classList.add('dark-mode');
+        }
+    </script>
+
+    <!-- ========================= -->
+    <!-- HEADER -->
+    <!-- ========================= -->
+    <header>
+
+        <div class="logo">
+            <!-- Logo -->
+            <a href="../index.html">
+                <img src="../../images/cimalogo.png" alt="CIMA Logo">
+            </a>
+        </div>
+
+        <button id="menu-toggle" class="menu-toggle" aria-label="Abrir menu">
+            <span></span>
+            <span></span>
+            <span></span>
+        </button>
+
+        <nav class="navbar" id="navbar">
+
+            <ul class="menu">
+                <li class="menu-actions">
+                    <div class="search-mini" id="search-mini">
+                        <button type="button" class="search-icon-btn" id="search-icon-btn" aria-label="Pesquisar">
+                            <svg viewBox="0 0 24 24" width="18" height="18">
+                                <circle cx="11" cy="11" r="7" fill="none" stroke="currentColor" stroke-width="2"/>
+                                <line x1="21" y1="21" x2="16.65" y2="16.65" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+                            </svg>
+                        </button>
+                        <input type="text" class="search-mini-input" id="search-mini-input" placeholder="Search...">
+                        <div class="search-mini-results" id="search-mini-results"></div>
+                    </div>
+                    <button id="theme-toggle" class="theme-toggle" aria-label="Alternar modo escuro">
+                    <svg viewBox="0 0 24 24" width="20" height="20">
+                        <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z" 
+                            fill="none" stroke="currentColor" stroke-width="2" 
+                            stroke-linecap="round" stroke-linejoin="round"/>
+                    </svg>
+                </button>
+                <a href="../../paginas/a-oxigen.html" class="lang-switch">PT</a>
+                </li>
+                
+                <li class="dropdown">
+                    <a href="#">Equipment ▾</a>
+                    <ul class="dropdown-menu">
+                        <li><a href="equipment.html">All Equipment</a></li>
+                        <li><a href="eanalitico.html">Analitical Equipment</a></li>
+                        <li><a href="elab.html">Laboratory Equipment</a></li>
+                        <li><a href="ecampo.html">Field Equipment</a></li>
+                    </ul>
+                </li>
+
+                <li class="dropdown">
+                    <a href="#">Technicians ▾</a>
+                    <ul class="dropdown-menu">
+                        <li><a href="margarida.html">Margarida Ramires</a></li>
+                        <li><a href="rodrigo.html">Rodrigo Borges</a></li>
+                    </ul>
+                </li>
+
+                <li class="dropdown">
+                    <a href="#">Documents ▾</a>
+                    <ul class="dropdown-menu">
+                        <li><a href="analises.html">Analysis</a></li>
+                        <li><a href="manuais.html">Equipment Manuals</a></li>
+                        <li><a href="rstock.html">Reagent Stocks</a></li>
+                    </ul>
+                </li>
+
+            </ul>
+
+        </nav>
+
+    </header>
+
+    <!-- ========================= -->
+    <!-- MAIN CONTENT -->
+    <!-- ========================= -->
+    <main>
+        <nav class="breadcrumbs">
+            <a href="../index.html">Home</a>
+            <span class="separator">›</span>
+            <a href="../paginas/analises.html">Analysis</a>
+            <span class="separator">›</span>
+            <span class="current">Elemental Oxygen Analysis</span>
+        </nav>
+        <!-- Hero Section -->
+        <section class="hero">
+
+                <div class="hero-content">
+
+                    <div class="equipment-description">
+
+                        <h1>Elemental Oxygen Analysis</h1>
+
+
+                        <div class="equipment-layout">
+                            <div class="infobox">
+                                <img src="../../images/a-oxigen.png" alt="FlashSmart CHNS/O">
+    
+                                <table class="infobox-table">
+                                    <tr>
+                                        <th colspan="2">Elemental Oxygen Analysis</th>
+                                    </tr>
+                                    <tr>
+                                        <td class="label">Method:</td>
+                                        <td>Elemental Analysis</td>
+                                    </tr>
+                                    <tr>
+                                        <td class="label">Equipment:</td>
+                                        <td><a href="flashsmart.html">Flashsmart Elemental Analyzer</a></td>
+                                    </tr>
+                                    <tr>
+                                        <td class="label">Technician:</td>
+                                        <td><a href="../paginas/rodrigo.html">Rodrigo Borges</a></td>
+                                    </tr>
+                                    <tr>
+                                        <td class="label">Average Time:</td>
+                                        <td>1 hour + 10 mins per run</td>
+                                    </tr>
+                                    <tr>
+                                        <td class="label">Sample Amount:</td>
+                                        <td>2 - 3 mg per replicate</td>
+                                    </tr>
+                                </table>
+                            </div>
+
+                            <div class="equipment-text">
+
+                                <p>
+                                    Oxygen elemental analysis (O) enables the quantitative determination of the oxygen content present in a sample, serving as a complementary technique to Carbon, Hydrogen, Nitrogen, and Sulfur (CHNS) elemental analysis. The determination is based on the conversion of oxygen present in the sample into suitable gaseous species, followed by their separation and quantification using instrumental methods, providing results with high precision, accuracy, and reproducibility.
+                                </p>
+                        
+                                <p>
+                                    The determination of oxygen content is particularly relevant for the characterization of organic materials and various environmental matrices, including biomass, microalgae, plants, soils, sediments, food products, polymers, fuels, and biological materials. The information obtained complements the elemental composition of the sample, enables the calculation of elemental ratios, and supports the assessment of parameters associated with its composition and quality.
+                                </p>
+
+                                <p>
+                                    Oxygen analysis can also be used to study the composition and transformation of organic matter, characterize biomass and biofuels, assess the degree of oxidation of materials, and support studies on waste valorization and biomass conversion processes. When combined with CHNS results, it enables the acquisition of a more complete elemental profile of the sample and provides valuable information for chemical, environmental, and biotechnological characterization studies.
+                                </p>
+
+                                
+                                <details>
+                                    <summary>Sample Preparation</summary>
+                                    
+                                    <h2></h2>
+
+                                    <p>For sample preparation, users should contact the technician <a href="../paginas/rodrigo.html">Rodrigo Borges</a> to request the appropriate number of silver capsules.</p>
+
+                                    <h2>Solid Samples</h2>
+
+                                    <p>Solid samples should be previously dried and ground to ensure their homogeneity. For each silver capsule, between <strong>2 and 3 mg</strong> of sample should be weighed. Weighing must be performed with the utmost care, as the low sample mass makes accurate weight determination essential for the correct calculation of elemental composition.</p>
+
+                                    <p><strong>Important:</strong> Special attention should be given to the amount of sample introduced into the capsule, as an excessive quantity of material may cause the capsule to rupture during sealing.</p>
+
+                                    <h2>Liquid Samples</h2>
+
+                                    <p>When analysing liquid samples with low element concentrations, these should be previously concentrated, and the concentration factor used must be recorded. The presence of water does not interfere with the analysis, as the moisture produced during combustion is removed by a <em>soda lime</em> and anhydrous magnesium perchlorate column.</p>
+
+                                    <p>Between <strong>2 and 3 mg</strong> of the liquid sample should be weighed into the silver capsule using a micropipette. This operation can be easily performed using, for example, a 20 µL micropipette, by dispensing approximately 2.5 µL of sample and accurately recording the obtained mass.</p>
+
+                                    <h2>Capsule Preparation</h2>
+
+                                    <p>After weighing the sample, the silver capsule should be carefully sealed as illustrated in the image below:</p>
+
+                                    <img src="../../images/a-chns-sampprep-en.png" alt="CHNS Analysis Sample Preparation" class="details-img zoomable">
+
+                                    <h2></h2>
+
+                                    <p>For the first request of this analysis, the technician <a href="../paginas/rodrigo.html">Rodrigo Borges</a> will provide an in-person demonstration of the correct sample preparation procedure. Additional silver capsules will also be made available for practice, as the proper handling and sealing of samples is a step that requires some practice and dexterity.</p>
+
+                                </details>
+                                
+                                <details>
+                                    <summary>
+                                    Analysis Specifications: 
+                                    </summary>
+
+                                    <table class="spec-table">
+                                        <tr>
+                                            <td class="label">Method:</td>
+                                            <td>High temperature pyrolysis</td>
+                                        </tr>
+                                        <tr>
+                                            <td class="label">Determined Element:</td>
+                                            <td>Oxygen</td>
+                                        </tr>
+                                        <tr>
+                                            <td class="label">Carrier Gas:</td>
+                                            <td>Helium</td>
+                                        </tr>
+                                        <tr>
+                                            <td class="label">Detector:</td>
+                                            <td>Thermal Condutivicty (TCD)</td>
+                                        </tr>
+                                        <tr>
+                                            <td class="label">Advised Replicate Number:</td>
+                                            <td>3</td>
+                                        </tr>
+                                        <tr>
+                                            <td class="label">Average Runtime:</td>
+                                            <td>10 minutes</td>
+                                        </tr>
+                                    </table>
+                                    
+                                </details>
+
+                                <details>
+                                    <summary>
+                                    Detection / Quantification Limits:
+                                    </summary>
+
+                                    <table class="spec-table2">
+
+                                        <tr>
+                                            <th>Element</th>
+                                            <th>LOD</th>
+                                            <th>LOQ</th>
+                                        </tr>
+                                        <tr>
+                                            <td>Oxygen</td>
+                                            <td> - </td>
+                                            <td> - </td>
+                                        </tr>
+
+                                    </table>
+
+
+                                </details>
+
+                                <details>
+                                    <summary>Provided Results</summary>
+                                    
+                                        <ul>
+                                            <li> % Oxygen</li>
+                                            <li> Mean and standard deviation </li>
+                                            <li> Chromatogram (if requested)</li>
+                                        </ul>
+                                </details>
+
+                                <details>
+                                    <summary>Types of Sample</summary>
+
+                                        <ul>
+                                            <li>Solid Samples;</li>
+                                            <li>Liquid Samples;</li>
+                                            <p></p>
+                                            <h3>Non-acceptable sample types:</h3>
+                                            <li>Highly volatile compounds;</li>
+                                            <li>Explosive materials;</li>
+                                            <li>Corrosive samples;</li>
+                                            <li>Radioactive samples;</li>
+                                        </ul>
+                                </details>
+
+                                <details>
+                                    <summary>
+                                        Documents:
+                                    </summary>
+                                    <h1></h1>
+                                        <a href="../../docs/fs_spguide.pdf" target="_blank" class="doc-pill">
+                                            <svg viewBox="0 0 24 24" width="16" height="16">
+                                                <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                                                <polyline points="14 2 14 8 20 8" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                                            </svg>
+                                            Sample Preparation Guide
+                                        </a>
+                                </div>
+
+                                </details>
+
+                            </div>
+
+                    </div>
+                </div>
+
+        </section>
+
+        <!-- Search -->
+        <section id="search">
+
+        </section>
+
+        <!-- Equipment Categories -->
+        <section id="categories">
+
+        </section>
+
+
+        <!-- Statistics -->
+        <section id="statistics">
+
+        </section>
+
+        <!-- Latest News -->
+        <section id="news">
+
+        </section>
+
+    </main>
+
+    <!-- ========================= -->
+    <!-- FOOTER -->
+    <!-- ========================= -->
+    <footer>
+        <div class="footer-content">
+
+            <div class="footer-logos">
+                <img src="../../images/cimafooter_preto.png" alt="CIMA" class="logo-light">
+                <img src="../../images/cimafooter_branco.png" alt="CIMA" class="logo-dark">
+
+                <img src="../../images/arnetfooter_preto.png" alt="ARNET" class="logo-light">
+                <img src="../../images/arnetfooter_branco.png" alt="ARNET" class="logo-dark">
+
+                <img src="../../images/ualgfooter_preto.png" alt="Universidade do Algarve" class="logo-light">
+                <img src="../../images/ualgfooter_branco.png" alt="Universidade do Algarve" class="logo-dark">
+            </div>
+
+            <div class="footer-year">
+              <p>© 2026</p>
+         </div>
+
+        </div>
+
+    </footer>
+
+    <div id="lightbox-overlay" class="lightbox-overlay">
+        <img src="" alt="" id="lightbox-img" class="lightbox-img">
+    </div>
+
+    <!-- JavaScript -->
+    <script src="../../js/app.js"></script>
+
+</body>
+
+</html>
