@@ -1,0 +1,304 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <!-- Basic Information -->
+    <meta charset="UTF-8">
+    <meta name="robots" content="noindex, nofollow">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>CIMA EquipmentHUB</title>
+    <meta name="description" content="CIMA EquipmentHUB - Centre for Marine and Environmental Research">
+    <meta name="author" content="CIMA">
+
+    <!-- Favicon -->
+    <link rel="icon" href="icons/cimalg.ico">
+
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+    <link href="https://fonts.googleapis.com/css2?family=Fira+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+    
+    <!-- CSS -->
+    <link rel="stylesheet" href="css/style.css">
+
+</head>
+
+<body>
+
+    <script>
+        if (localStorage.getItem('theme') === 'dark') {
+            document.body.classList.add('dark-mode');
+        }
+    </script>
+
+    <!-- ========================= -->
+    <!-- HEADER -->
+    <!-- ========================= -->
+    <header>
+
+        <div class="logo">
+            <!-- Logo -->
+            <a href="index.html">
+                <img src="images/cimalogo.png" alt="CIMA Logo">
+            </a>
+        </div>
+
+        <button id="menu-toggle" class="menu-toggle" aria-label="Abrir menu">
+            <span></span>
+            <span></span>
+            <span></span>
+        </button>
+
+        <nav class="navbar" id="navbar">
+
+            <ul class="menu">
+                
+                <li class="menu-actions">
+                    <div class="search-mini" id="search-mini">
+                        <button type="button" class="search-icon-btn" id="search-icon-btn" aria-label="Pesquisar">
+                            <svg viewBox="0 0 24 24" width="18" height="18">
+                                <circle cx="11" cy="11" r="7" fill="none" stroke="currentColor" stroke-width="2"/>
+                                <line x1="21" y1="21" x2="16.65" y2="16.65" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+                            </svg>
+                        </button>
+                        <input type="text" class="search-mini-input" id="search-mini-input" placeholder="Pesquisar...">
+                        <div class="search-mini-results" id="search-mini-results"></div>
+                    </div>
+                    <button id="theme-toggle" class="theme-toggle" aria-label="Alternar modo escuro">
+                        <svg viewBox="0 0 24 24" width="20" height="20">
+                            <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z" 
+                                fill="none" stroke="currentColor" stroke-width="2" 
+                                stroke-linecap="round" stroke-linejoin="round"/>
+                        </svg>
+                    </button>
+                    <a href="EN/index.html" class="lang-switch">EN</a>
+                </li>
+                
+                <li class="dropdown">
+                    <a href="#">Equipamentos ▾</a>
+                    <ul class="dropdown-menu">
+                        <li><a href="paginas/equipment.html">Todos os Equipamentos</a></li>
+                        <li><a href="paginas/eanalitico.html">Equipamentos Analíticos</a></li>
+                        <li><a href="paginas/elab.html">Equipamentos de Laboratório</a></li>
+                        <li><a href="paginas/ecampo.html">Equipamentos de Campo</a></li>
+                    </ul>
+                </li>
+
+
+                <li class="dropdown">
+                    <a href="#">Técnicos ▾</a>
+                    <ul class="dropdown-menu">
+                        <li><a href="paginas/margarida.html">Margarida Ramires</a></li>
+                        <li><a href="paginas/rodrigo.html">Rodrigo Borges</a></li>
+                    </ul>
+                </li>
+
+
+                <li class="dropdown">
+                    <a href="#">Documentação ▾</a>
+                    <ul class="dropdown-menu">
+                        <li><a href="paginas/analises.html">Análises</a></li>
+                        <li><a href="paginas/manuais.html">Manuais de Equipamentos</a></li>
+                        <li><a href="paginas/rstock.html">Stocks de Reagentes</a></li>
+                    </ul>
+                </li>
+
+            </ul>
+
+        </nav>
+
+    </header>
+
+    <!-- ========================= -->
+    <!-- MAIN CONTENT -->
+    <!-- ========================= -->
+    <main>
+
+        <section id="search">
+            <div class="search-wrapper">
+                <div class="search-box">
+                    <svg viewBox="0 0 24 24" width="22" height="22">
+                        <circle cx="11" cy="11" r="7" fill="none" stroke="currentColor" stroke-width="2"/>
+                        <line x1="21" y1="21" x2="16.65" y2="16.65" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+                    </svg>
+                    <input type="text" id="main-search-input" placeholder="Pesquisar equipamento, análise ou documento...">
+                </div>
+                <div class="search-results" id="main-search-results"></div>
+            </div>
+        </section>
+
+        <section id="intro-slide">
+
+            <div class="slide-outer">
+
+                <div class="slide-inner">
+
+                    <button class="slide-arrow slide-arrow-left" id="slide-prev" aria-label="Slide anterior">
+                        <svg viewBox="0 0 24 24" width="20" height="20">
+                            <path d="M15 18l-6-6 6-6" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                        </svg>
+                    </button>
+
+                    <div class="slide active">
+                        <img class="slide-img" src="images/slide1.png" alt="Descrição do slide 1">
+                        <div class="slide-txt">
+                            <h2>CIMA EquipmentHUB</h2>
+                            <p>Explore a infrastrutura analítica do CIMA, incluindo a listagem de equipamentos partilhados, perfis dos técnicos, as análises disponíveis e documentação técnica.</p>
+                        </div>
+                    </div>
+
+                    <div class="slide">
+                        <img class="slide-img" src="images/slide2.png" alt="Descrição do slide 2">
+                        <div class="slide-txt">
+                            <h2>Para que serve o EquipmentHUB?</h2>
+                            <p>
+                                O EquipmentHUB disponibiliza um catálogo centralizado de todos os equipamentos partilhados do CIMA. Cada página de equipamento reúne a informação necessária para conhecer e utilizar corretamente o equipamento, incluindo descrição, especificações técnicas, aplicações, metodologias, protocolos de operação e documentação de apoio.
+                            </p>
+                        </div>
+                    </div>
+
+                    <div class="slide">
+                        <img class="slide-img" src="images/slide3.png" alt="Descrição do slide 3">
+                        <div class="slide-txt">
+                            <h2>O que posso fazer no EquipmentHUB?</h2>
+                            <p>
+                                 O EquipmentHUB permite verificar a disponibilidade e reservar equipamentos, consultar manuais e informação técnica sobre as análises, consultar a disponibilidade dos técnicos e perceber as aplicações e especificações de cada equipamento.
+                            </p>
+                        </div>
+                    </div>
+
+                    <button class="slide-arrow slide-arrow-right" id="slide-next" aria-label="Slide seguinte">
+                        <svg viewBox="0 0 24 24" width="20" height="20">
+                            <path d="M9 18l6-6-6-6" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                        </svg>
+                    </button>
+
+                </div>
+
+            </div>
+
+            <div class="slide-dots" id="slide-dots"></div>
+
+        </section>
+
+        <!-- Quick Access -->
+
+        <section id="quickaccess">
+            <h2 class="section-title">Acesso Rápido</h2>
+            <div class="category-grid">
+                <a href="paginas/reqform.html" class="category-card">
+                    <img src="images/schedico.png" alt="requisitar">
+                    <h3>Requisitar Equipamento</h3>
+                    <p>Requisitar a utilização de um equipamento em poucos passos</p>
+                </a>
+
+                <a href="paginas/analises.html" class="category-card">
+                    <img src="images/analico.png" alt="analises">
+                    <h3>Análises Disponíveis</h3>
+                    <p>Explore as análises que temos disponíveis</p>
+                </a>
+
+                <a href="paginas/manuais.html" class="category-card">
+                    <img src="images/manico.png" alt="manuais">
+                    <h3>Manuais e Documentos</h3>
+                    <p>Consulte manuais técnicos e outros documentos</p>
+                </a>
+            </div>
+        </section>
+
+        <!-- Equipment Categories -->
+        <section id="categories">
+            <h2 class="section-title">Categorias de Equipamentos</h2>
+            <div class="category-grid">
+                <a href="paginas/eanalitico.html" class="category-card">
+                    <img src="images/an-ico.png" alt="Equipamentos Analíticos">
+                    <h3>Equipamentos Analíticos</h3>
+                    <p>Cromatografia, espectrofotometria e respirometria</p>
+                </a>
+
+                <a href="paginas/elab.html" class="category-card">
+                    <img src="images/lab-ico.png" alt="Equipamentos de Laboratório">
+                    <h3>Equipamentos de Laboratório</h3>
+                    <p>Autoclaves, centrífugas e muflas</p>
+                </a>
+
+                <a href="paginas/ecampo.html" class="category-card">
+                    <img src="images/camp-ico.png" alt="Equipamentos de Campo">
+                    <h3>Equipamentos de Campo</h3>
+                    <p>GPS, sensores e equipamento de amostragem</p>
+                </a>
+            </div>
+        </section>
+
+        <!-- Featured Equipment -->
+        <section id="featured">
+
+        </section>
+
+        <!-- Statistics -->
+        <section id="statistics">
+            <h2 class="section-title">O Centro em Números</h2>
+
+            <div class="stats-grid">
+                <div class="stat-card">
+                    <span class="stat-number">31</span>
+                    <span class="stat-label">Equipamentos</span>
+                </div>
+
+                <div class="stat-card">
+                    <span class="stat-number">3</span>
+                    <span class="stat-label">Categorias</span>
+                </div>
+
+                <div class="stat-card">
+                    <span class="stat-number">2</span>
+                    <span class="stat-label">Técnicos Responsáveis</span>
+                </div>
+
+                <div class="stat-card">
+                    <span class="stat-number">2</span>
+                    <span class="stat-label">Análises Disponíveis</span>
+                </div>
+            </div>
+        </section>
+
+        <!-- Latest News -->
+        <section id="news">
+
+        </section>
+
+    </main>
+
+    <!-- ========================= -->
+    <!-- FOOTER -->
+    <!-- ========================= -->
+    <footer>
+        <div class="footer-content">
+
+            <div class="footer-logos">
+                <img src="images/cimafooter_preto.png" alt="CIMA" class="logo-light">
+                <img src="images/cimafooter_branco.png" alt="CIMA" class="logo-dark">
+
+                <img src="images/arnetfooter_preto.png" alt="ARNET" class="logo-light">
+                <img src="images/arnetfooter_branco.png" alt="ARNET" class="logo-dark">
+
+                <img src="images/ualgfooter_preto.png" alt="Universidade do Algarve" class="logo-light">
+                <img src="images/ualgfooter_branco.png" alt="Universidade do Algarve" class="logo-dark">
+            </div>
+
+            <div class="footer-year">
+              <p>© 2026</p>
+         </div>
+
+        </div>
+
+    </footer>
+
+    <!-- JavaScript -->
+    <script src="js/app.js"></script>
+
+</body>
+
+</html>
