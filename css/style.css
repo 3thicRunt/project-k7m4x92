@@ -1960,6 +1960,7 @@ body.dark-mode .footer-logos .logo-dark {
 
 .footer-year{
 
+    display: flex;
     color: var(--text-color); 
 
     right: 50px;
