@@ -1494,7 +1494,13 @@ details a {
     letter-spacing: 0.3px;
 }
 
-
+.equipment-description h1,
+.equipment-description h2,
+.equipment-description h3 {
+    overflow-wrap: break-word;
+    word-break: break-word;
+    hyphens: auto;
+}
 
 
 
