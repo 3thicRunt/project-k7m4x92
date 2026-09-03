@@ -1573,6 +1573,31 @@ details a {
     }
 }
 
+@media (max-width: 600px) {
+    footer {
+        padding: 20px 20px;
+    }
+
+    .footer-content {
+        flex-direction: column;
+        gap: 15px;
+    }
+
+    .footer-logos {
+        gap: 20px;
+        flex-wrap: wrap;
+    }
+
+    .footer-logos img {
+        height: 32px;
+    }
+
+    .footer-year {
+        position: static;
+        text-align: center;
+    }
+}
+
 /* Calendar */
 
 .calendar-embed {
