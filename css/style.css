@@ -1557,6 +1557,21 @@ details a {
     min-width: 0; /* prevents overflow issues with long content */
 }
 
+@media (max-width: 700px) {
+    .equipment-layout {
+        flex-direction: column;
+    }
+
+    .infobox {
+        flex: none;
+        width: 100%;
+        margin: 0 0 20px 0;
+    }
+
+    .equipment-text {
+        width: 100%;
+    }
+}
 
 /* Calendar */
 
