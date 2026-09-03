@@ -1502,8 +1502,22 @@ details a {
     hyphens: auto;
 }
 
+.hero-content h1,
+.hero-content h2,
+.hero-content h3 {
+    overflow-wrap: break-word;
+    word-break: break-word;
+    hyphens: auto;
+}
 
-
+.tec-content h1,
+.tec-content h2,
+.tec-content h3,
+.tec-content small{
+    overflow-wrap: break-word;
+    word-break: break-word;
+    hyphens: auto;
+}
 
 
 
