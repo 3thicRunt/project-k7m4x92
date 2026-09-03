@@ -262,11 +262,14 @@ if (slides.length > 0 && dotsContainer) {
 
 // ===== ÍNDICE DE PESQUISA =====
 
+const APP_SCRIPT_SRC = document.currentScript
+    ? document.currentScript.getAttribute("src")
+    : "js/app.js";
+
+const BASE_PATH = APP_SCRIPT_SRC.replace(/js\/app\.js$/, "");
+
 function getBasePath() {
-    const path = window.location.pathname;
-    const semFicheiro = path.substring(0, path.lastIndexOf("/") + 1);
-    const partes = semFicheiro.split("/").filter(function (p) { return p.length > 0; });
-    return "../".repeat(partes.length);
+    return BASE_PATH;
 }
 
 const searchIndex = [
