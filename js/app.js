@@ -50,7 +50,7 @@ if (themeToggle) {
 
 // ===== FORMULÁRIO DE REQUISIÇÃO =====
 
-const APPS_SCRIPT_REQUISICAO_URL = "https://script.google.com/macros/s/AKfycbwbi9OgnXfx00_QSOL9hyis9jz29Wgrrbrcnf1ae0y14R7IhEiH7LCb2bSctQL-vsoNfA/exec";
+const APPS_SCRIPT_REQUISICAO_URL = "https://script.google.com/macros/s/AKfycbx4IWP1-Z6XsvjX-iTHiQmEnmgZEUuo4lj05WwC1vcoPuiD6IzeIVPgJDDAh3zE58TVjw/exec";
 
 const formRequisicao = document.getElementById("form-requisicao");
 
@@ -64,32 +64,104 @@ if (formRequisicao) {
         select.value = equipamentoParam;
     }
 
-    // 2. Bloqueia requisições para os próximos 3 dias
-    const inputInicio = document.getElementById("data-inicio");
-    const inputFim = document.getElementById("data-fim");
+    // 2. Configura períodos de reserva sequenciais
+    const periodosReserva = document.getElementById("periodos-reserva");
+    const adicionarPeriodoBtn = document.getElementById("adicionar-periodo");
 
     const hoje = new Date();
     const minData = new Date(hoje);
-    minData.setDate(hoje.getDate() + 3); 
+    minData.setDate(hoje.getDate() + 3); // antecedência mínima de 3 dias
     const minDataStr = minData.toISOString().split("T")[0];
 
-    inputInicio.min = minDataStr;
-    inputFim.min = minDataStr;
+    function combinarDataHora(dataInput, horaInput) {
+        if (!dataInput.value) return "";
+        return `${dataInput.value}T${horaInput.value || "00:00"}`;
+    }
 
-    // 3. Garante que a data de fim nunca é anterior à de início
-    inputInicio.addEventListener("change", function () {
-        inputFim.min = inputInicio.value;
-        if (inputFim.value && inputFim.value < inputInicio.value) {
-            inputFim.value = inputInicio.value;
-        }
+    function atualizarRestricoesPeriodos() {
+        const periodos = Array.from(periodosReserva.querySelectorAll("[data-periodo]"));
+
+        periodos.forEach(function (periodo, indice) {
+            const dataInicio = periodo.querySelector(".data-inicio");
+            const horaInicio = periodo.querySelector(".hora-inicio");
+            const dataFim = periodo.querySelector(".data-fim");
+            const horaFim = periodo.querySelector(".hora-fim");
+
+            const fimAnteriorData = indice > 0
+                ? periodos[indice - 1].querySelector(".data-fim").value
+                : "";
+
+            const dataMinimaInicio = fimAnteriorData || minDataStr;
+
+            dataInicio.min = dataMinimaInicio;
+            if (dataInicio.value && dataInicio.value < dataMinimaInicio) {
+                dataInicio.value = "";
+            }
+
+            dataFim.min = dataInicio.value || dataMinimaInicio;
+            if (dataFim.value && dataInicio.value && dataFim.value < dataInicio.value) {
+                dataFim.value = dataInicio.value;
+            }
+
+            // Se início e fim forem no mesmo dia, a hora de fim tem de ser depois da hora de início
+            if (dataInicio.value && dataFim.value && dataInicio.value === dataFim.value) {
+                if (horaFim.value && horaInicio.value && horaFim.value <= horaInicio.value) {
+                    horaFim.value = "";
+                }
+            }
+        });
+    }
+
+    function configurarPeriodo(periodo) {
+        periodo.querySelector(".data-inicio").addEventListener("change", atualizarRestricoesPeriodos);
+        periodo.querySelector(".data-fim").addEventListener("change", atualizarRestricoesPeriodos);
+        periodo.querySelector(".hora-inicio").addEventListener("change", atualizarRestricoesPeriodos);
+        periodo.querySelector(".hora-fim").addEventListener("change", atualizarRestricoesPeriodos);
+    }
+
+    configurarPeriodo(periodosReserva.querySelector("[data-periodo]"));
+    atualizarRestricoesPeriodos();
+
+    adicionarPeriodoBtn.addEventListener("click", function () {
+        const numeroPeriodo = periodosReserva.querySelectorAll("[data-periodo]").length + 1;
+        const periodo = document.createElement("div");
+        periodo.className = "form-row booking-period";
+        periodo.dataset.periodo = "";
+        periodo.innerHTML = `
+            <div class="form-group">
+                <label for="data-inicio-${numeroPeriodo}">Data de Início *</label>
+                <input type="date" id="data-inicio-${numeroPeriodo}" name="data-inicio-${numeroPeriodo}" class="data-inicio" required>
+            </div>
+            <div class="form-group">
+                <label for="hora-inicio-${numeroPeriodo}">Hora de Início *</label>
+                <input type="time" id="hora-inicio-${numeroPeriodo}" name="hora-inicio-${numeroPeriodo}" class="hora-inicio" required>
+            </div>
+            <div class="form-group">
+                <label for="data-fim-${numeroPeriodo}">Data de Fim *</label>
+                <input type="date" id="data-fim-${numeroPeriodo}" name="data-fim-${numeroPeriodo}" class="data-fim" required>
+            </div>
+            <div class="form-group">
+                <label for="hora-fim-${numeroPeriodo}">Hora de Fim *</label>
+                <input type="time" id="hora-fim-${numeroPeriodo}" name="hora-fim-${numeroPeriodo}" class="hora-fim" required>
+            </div>
+        `;
+        periodosReserva.appendChild(periodo);
+        configurarPeriodo(periodo);
+        atualizarRestricoesPeriodos();
     });
 
-    // 4. Envio do formulário
+    // 3. Envio do formulário
     formRequisicao.addEventListener("submit", async function (e) {
         e.preventDefault();
 
         const submitBtn = document.getElementById("submit-btn");
         const statusEl = document.getElementById("form-status");
+        const periodos = Array.from(periodosReserva.querySelectorAll("[data-periodo]")).map(function (periodo) {
+            return {
+                dataInicio: combinarDataHora(periodo.querySelector(".data-inicio"), periodo.querySelector(".hora-inicio")),
+                dataFim: combinarDataHora(periodo.querySelector(".data-fim"), periodo.querySelector(".hora-fim"))
+            };
+        });
 
         submitBtn.disabled = true;
         statusEl.textContent = "A enviar pedido...";
@@ -98,10 +170,11 @@ if (formRequisicao) {
         const dados = {
             equipamento: document.getElementById("equipamento").value,
             equipamentoTexto: document.getElementById("equipamento").selectedOptions[0].text,
-            dataInicio: inputInicio.value,
-            dataFim: inputFim.value,
+            dataInicio: periodos[0].dataInicio,
+            dataFim: periodos[0].dataFim,
+            periodos,
             requisitante: document.getElementById("requisitante").value,
-            emailRequisitante: document.getElementById("email-requisitante").value,
+            emailRequisitante: `${document.getElementById("email-requisitante").value.trim()}@ualg.pt`,
             responsavel: document.getElementById("responsavel").value,
             enquadramento: document.getElementById("enquadramento").value,
             observacoes: document.getElementById("observacoes").value
@@ -120,6 +193,10 @@ if (formRequisicao) {
                 statusEl.textContent = "Pedido enviado com sucesso!";
                 statusEl.className = "form-status success";
                 formRequisicao.reset();
+                Array.from(periodosReserva.querySelectorAll("[data-periodo]")).slice(1).forEach(function (periodo) {
+                    periodo.remove();
+                });
+                atualizarRestricoesPeriodos();
             } else {
                 throw new Error(resultado.erro || "Erro desconhecido");
             }
@@ -290,7 +367,7 @@ const searchIndex = [
 
     { nome: "Arca -80°C Thermo Scientific TSX Series", link: "paginas/tsxseries80.html", categoria: "Equipamento", keywords: ["ultracongelador", "ultracongelacao", "arca -80", "congelador -80", "ultra low temperature", "ULT", "ultra low freezer", "TSX", "TSX Series", "V-drive", "thermo scientific", "thermo fisher", "conservacao", "armazenamento", "amostras biologicas", "reagentes", "culturas", "criopreservacao", "criopreservação", "temperatura ultrabaixa", "Instrument Connect"] },
 
-    { nome: "Autoclave WiseClave WAC-60", link: "paginas/wac60.html", categoria: "Equipamento", keywords: ["esterilizar", "esterilizacao", "calor humido", "autoclave", "daihan"] },
+    { nome: "Autoclave Maxterile 60", link: "paginas/maxterile60.html", categoria: "Equipamento", keywords: ["autoclave", "Maxterile 60", "esterilização", "esterilizacao", "esterilizador", "vapor", "pressão", "pressao", "laboratório", "laboratorio"] },
 
     { nome: "Balança de Precisão VWR LAG 314i", link: "paginas/bvwr.html", categoria: "Equipamento", keywords: ["balanca", "balança", "precisao", "precisão", "balanca analitica", "balança analítica", "pesagem", "massa", "310 g", "0,1 mg", "calibracao interna", "calibração interna", "GLP", "formulacao", "formulação", "totalizacao", "totalização", "contagem de pecas", "contagem de peças", "VWR", "LAG 314i"] },
 
@@ -332,7 +409,15 @@ const searchIndex = [
 
     { nome: "Sonda Hanna HI98594", link: "paginas/hi98594.html", categoria: "Equipamento", keywords: ["sonda", "multiparametrica", "hanna", "sensor", "temperatura", "condutividade", "salinidade", "oxigenio dissolvido", "pH", "ORP", "redox", "turbidez", "tds", "solidos totais dissolvidos", "resistividade", "densidade"] },
 
+    { nome: "Sonda Multiparamétrica Hach HQ2100", link: "paginas/hq2100.html", categoria: "Equipamento", keywords: ["sonda", "multiparametrica", "hach", "hq2100", "sensor", "pH", "ORP", "redox", "condutividade", "temperatura", "oxigenio dissolvido", "salinidade", "tds", "solidos totais dissolvidos", "resistividade"] },
+
+    { nome: "Sonda de Oxigénio Dissolvido VWR pHenomenal OX 4110 H", link: "paginas/ox4110h.html", categoria: "Equipamento", keywords: ["sonda", "oxigénio dissolvido", "VWR", "pHenomenal", "OX 4110 H", "sensor", "oxigénio", "OD", "DO", "água", "qualidade da água"] },
+
     { nome: "Sonda YSI EXO2", link: "paginas/exo2.html", categoria: "Equipamento", keywords: ["sonda", "multiparametrica", "ysi", "sensor", "temperatura", "condutividade", "salinidade", "oxigenio dissolvido", "pH", "ORP", "redox", "turbidez", "clorofila", "ficocianina", "ficoeritrina", "exo", "fdom", "cdom"] },
+
+    { nome: "SonTek/YSI Triton Velocímetro Acústico Doppler", link: "paginas/triton.html", categoria: "Equipamento", keywords: ["velocímetro acústico Doppler", "SonTek", "YSI", "Triton", "ADV", "velocidade da água", "velocidade do fluxo", "corrente", "escoamento", "água", "hidrodinâmica"] },
+
+    { nome: "Transdutor de Pressão JFE Advantech Infinity AWH-USB", link: "paginas/infinitywh.html", categoria: "Equipamento", keywords: ["transdutor de pressão", "JFE Advantech", "Infinity AWH-USB", "InfinityWH", "sensor de pressão", "pressão", "nível de água", "profundidade", "pressão hidrostática", "monitorização"] },
 
     { nome: "UHPLC Thermo Scientific UltiMate 3000", link: "paginas/ultimate3000.html", categoria: "Equipamento", keywords: ["UHPLC", "HPLC", "cromatografia", "cromatografia liquida", "cromatografia líquida", "cromatografia liquida de alta eficiencia", "cromatografia líquida de alta eficiência", "cromatografo", "cromatógrafo", "cromatografia analitica", "cromatografia analítica", "separacao cromatografica", "separação cromatográfica", "analise quantitativa", "análise quantitativa", "analise qualitativa", "análise qualitativa", "identificacao de compostos", "identificação de compostos", "compostos organicos", "compostos orgânicos", "metabolitos", "metabólitos", "farmacos", "fármacos", "proteinas", "proteínas", "peptideos", "péptidos", "amostras ambientais", "amostras biologicas", "amostras biológicas", "DAD", "FLD", "RI", "MS", "MS/MS", "espectrometria de massa", "detetor UV", "detetor de fluorescencia", "detetor de fluorescência", "detetor de indice de refracao", "detetor de índice de refração", "Thermo Scientific", "Thermo Fisher", "Dionex", "UltiMate 3000", "Ultimate 3000"] },
 

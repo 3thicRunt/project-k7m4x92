@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="robots" content="noindex, nofollow">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Request Equipment - CIMA EquipmentHUB</title>
+    <link rel="icon" href="../../icons/cimalg.ico">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Fira+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+    <link rel="stylesheet" href="../../css/style.css">
+</head>
+
+<body>
+
+    <script>
+        if (localStorage.getItem('theme') === 'dark') {
+            document.body.classList.add('dark-mode');
+        }
+    </script>
+
+    <header>
+
+        <div class="logo">
+            <!-- Logo -->
+            <a href="../index.html">
+                <img src="../../images/cimalogo.png" alt="CIMA Logo">
+            </a>
+        </div>
+
+        <button id="menu-toggle" class="menu-toggle" aria-label="Abrir menu">
+            <span></span>
+            <span></span>
+            <span></span>
+        </button>
+
+        <nav class="navbar" id="navbar">
+
+            <ul class="menu">
+                <li class="menu-actions">
+                    <div class="search-mini" id="search-mini">
+                        <button type="button" class="search-icon-btn" id="search-icon-btn" aria-label="Pesquisar">
+                            <svg viewBox="0 0 24 24" width="18" height="18">
+                                <circle cx="11" cy="11" r="7" fill="none" stroke="currentColor" stroke-width="2"/>
+                                <line x1="21" y1="21" x2="16.65" y2="16.65" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+                            </svg>
+                        </button>
+                        <input type="text" class="search-mini-input" id="search-mini-input" placeholder="Search...">
+                        <div class="search-mini-results" id="search-mini-results"></div>
+                    </div>
+                    <button id="theme-toggle" class="theme-toggle" aria-label="Alternar modo escuro">
+                    <svg viewBox="0 0 24 24" width="20" height="20">
+                        <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z" 
+                            fill="none" stroke="currentColor" stroke-width="2" 
+                            stroke-linecap="round" stroke-linejoin="round"/>
+                    </svg>
+                </button>
+                <a href="../../paginas/reqform2.html" class="lang-switch">PT</a>
+                </li>
+                
+                <li class="dropdown">
+                    <a href="#">Equipment ▾</a>
+                    <ul class="dropdown-menu">
+                        <li><a href="equipment.html">All Equipment</a></li>
+                        <li><a href="eanalitico.html">Analitical Equipment</a></li>
+                        <li><a href="elab.html">Laboratory Equipment</a></li>
+                        <li><a href="ecampo.html">Field Equipment</a></li>
+                    </ul>
+                </li>
+
+                <li class="dropdown">
+                    <a href="#">Technicians ▾</a>
+                    <ul class="dropdown-menu">
+                        <li><a href="margarida.html">Margarida Ramires</a></li>
+                        <li><a href="rodrigo.html">Rodrigo Borges</a></li>
+                    </ul>
+                </li>
+
+                <li class="dropdown">
+                    <a href="#">Documents ▾</a>
+                    <ul class="dropdown-menu">
+                        <li><a href="analises.html">Analysis</a></li>
+                        <li><a href="manuais.html">Equipment Manuals</a></li>
+                        <li><a href="rstock.html">Reagent Stocks</a></li>
+                    </ul>
+                </li>
+
+            </ul>
+
+        </nav>
+
+    </header>
+    <main>
+        <nav class="breadcrumbs">
+            <a href="../index.html">Home</a><span class="separator">›</span>
+            <span class="current">Reserve Equipment</span>
+        </nav>
+        <section class="hero">
+            <div class="hero-content">
+                <div class="equipment-text">
+                    <h1>Reserve Equipment</h1>
+                    <p>Fill in the form below to reserve the desired equipment. The equipment reservation will be <u>made automatically and immediately</u>, provided that it is not already reserved for the selected date.</p>
+                    <p>Please check that the equipment you wish to request is available on the date you intend to use it.</p>
+                    <p>If you wish to cancel your reservation, please contact one of the responsible technicians.</p>
+                    <details>
+                        <summary>Important Information</summary>
+                        <p></p>
+                        <p><u>The first uses of the equipment will be supervised by one of the responsible technicians.</u> Once the technician considers that the user is familiar with the equipment, permission to use it independently may be granted.</p>
+                        <p></p>
+                        <p><u>It is the <strong>user's responsibility</strong> to ensure that the equipment is left in appropriate condition after use, so that the next user can use the equipment without any problems.</u></p>
+                        <p></p>
+                        <p>Any problem or malfunction identified during use <u>must be reported</u> to the responsible technicians as soon as possible.</p>
+                    </details>
+                </div>
+                <form id="form-agendamento" class="request-form">
+                <div class="form-group">
+                    <label for="equipamento">Equipment *</label>
+                    <select id="equipamento" name="equipamento" required>
+                        <option value="" disabled selected>Select an equipment</option>
+                    </select>
+                </div>
+                    <div class="form-group">
+                        <label for="requisitante">Name *</label>
+                        <input type="text" id="requisitante" name="requisitante" placeholder="User name" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="email-requisitante">Email *</label>
+                        <div class="email-domain-field">
+                            <input type="text" id="email-requisitante" name="email-requisitante" placeholder="name" autocomplete="email" inputmode="email" required>
+                            <span class="email-domain-suffix" aria-hidden="true">@ualg.pt</span>
+                        </div>
+                    </div>
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label for="data-inicio">Start date and time *</label>
+                            <input type="datetime-local" id="data-inicio" name="data-inicio" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="data-fim">End date and time *</label>
+                            <input type="datetime-local" id="data-fim" name="data-fim" required>
+                        </div>
+                    </div>
+                    <button type="submit" class="submit-btn" id="submit-btn">Schedule use</button>
+                    <p id="form-status" class="form-status" aria-live="polite"></p>
+                </form>
+            </div>
+        </section>
+    </main>
+    <script src="../../js/app2.js"></script>
+    <script src="../../js/app.js"></script>
+</body>
+</html>

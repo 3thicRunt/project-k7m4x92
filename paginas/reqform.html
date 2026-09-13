@@ -114,11 +114,11 @@
                     <details>
                         <summary>Informações Importantes</summary>
                         <p></p>
-                        <p>A verificação do estado e funcionamento dos equipamentos de campo é da responsabilidade do utilizador antes da sua utilização. Esta verificação inclui o teste geral do equipamento, a confirmação do estado da bateria e a validação da calibração, quando aplicável. Devido às características destes equipamentos, podem ocorrer pequenas avarias, desvios ou necessidade de ajustes mesmo após períodos prolongados de inatividade. Qualquer anomalia, dano ou irregularidade identificada durante a utilização deverá ser comunicada aos técnicos responsáveis no momento da devolução do equipamento, permitindo a sua avaliação e resolução com a maior brevidade possível.</p>
+                        <p><u>A verificação do estado e funcionamento dos equipamentos de campo é da <strong>responsabilidade do utilizador</strong> antes da sua utilização.</u> Esta verificação inclui o teste geral do equipamento, a confirmação do estado da bateria e a validação da calibração, quando aplicável. Devido às características destes equipamentos, podem ocorrer pequenas avarias, desvios ou necessidade de ajustes mesmo após períodos prolongados de inatividade. <u>Qualquer anomalia, dano ou irregularidade identificada durante a utilização <strong>deverá ser comunicada</strong> aos técnicos responsáveis no momento da devolução do equipamento</u>, permitindo a sua avaliação e resolução com a maior brevidade possível.</p>
                         <p></p>
-                        <p>Para equipamentos analíticos cuja operação é realizada exclusivamente pelos técnicos, a preparação das amostras é da responsabilidade do requisitante. Os consumíveis e reagentes necessários à realização das análises serão geridos pelos técnicos responsáveis. Sempre que o laboratório disponha dos reagentes necessários em stock, poderá ser acordada com o requisitante uma contribuição sob a forma de reagentes ou consumíveis equivalentes, destinados a apoiar o funcionamento de outros equipamentos ou a realização de outras análises, contribuindo assim para a manutenção e o bom funcionamento geral do centro.</p>
+                        <p><u>Para equipamentos analíticos cuja operação é realizada exclusivamente pelos técnicos, <strong>a preparação das amostras é da responsabilidade do requisitante</strong></u>. Os consumíveis e reagentes necessários à realização das análises serão geridos pelos técnicos responsáveis. Sempre que o laboratório disponha dos reagentes necessários em stock, poderá ser acordada com o requisitante uma contribuição sob a forma de reagentes ou consumíveis equivalentes, destinados a apoiar o funcionamento de outros equipamentos ou a realização de outras análises, contribuindo assim para a manutenção e o bom funcionamento geral do centro.</p>
                     </details>
-                
+                 
                 </div>
 
                 <form id="form-requisicao" class="request-form">
@@ -130,38 +130,44 @@
                             <option value="flashsmart">Analizador Elementar FlashSmart</option>
                             <option value="SEAL_AQ400">Analizador de Nutrientes SEAL AQ400</option>
                             <option value="malvern">Analizador de Partículas Malvern Mastersizer 3000</option>
-                            <option value="wac60">Autoclave Maxterile 60</option>
-                            <option value="gyrozen">Centrífuga Gyrozen GZ-2236 R</option>
                             <option value="tr8s">DGPS Trimble R8s</option>
                             <option value="tr12i">DGPS Trimble R12</option>
                             <option value="summit">FTIR Nicolet Summit</option>
                             <option value="tr6">GPS Trimble R6</option>
                             <option value="tristar5">Leitor de Placas Berthold Tristar 5</option>
                             <option value="visiscope">Microscópio de Fluorescência VisiScope IT600FLD</option> 
-                            <option value="f6020c">Mufla Thermolyne F6020C-33</option>
-                            <option value="cfxopus">Real-Time PCR Bio-Rad CFX Opus 96 Dx</option>
                             <option value="echoer">Respirometro ECHO ER</option>
-                            <option value="chemidoc">Scan de Géis Bio-Rad Chemidoc</option>
                             <option value="hq2100">Sonda Hach HQ2100</option>
                             <option value="hi98594">Sonda Hanna Hi98594</option>
                             <option value="ox4110h">Sonda VWR pHenomenal OX 4110 H</option>
                             <option value="exo2">Sonda YSI EXO2</option>
                             <option value="infinitywh">Transdutor de Pressão JFE Advantech Infinity AWH-USB</option>
+                            <option value="triton">Velocimetro Doppler Acústico SonTek/YSI Triton</option>
                             <option value="uhplc">UHPLC UltiMate™ 3000</option>
                         </select>
                     </div>
 
-                    <div class="form-row">
-                        <div class="form-group">
-                            <label for="data-inicio">Data de Início *</label>
-                            <input type="date" id="data-inicio" name="data-inicio" required>
-                        </div>
-
-                        <div class="form-group">
-                            <label for="data-fim">Data de Fim *</label>
-                            <input type="date" id="data-fim" name="data-fim" required>
+                    <div id="periodos-reserva" class="booking-periods">
+                        <div class="form-row booking-period" data-periodo>
+                            <div class="form-group">
+                                <label for="data-inicio">Data de Início *</label>
+                                <input type="date" id="data-inicio" name="data-inicio" class="data-inicio" required>
+                            </div>
+                            <div class="form-group">
+                                <label for="hora-inicio">Hora de Início *</label>
+                                <input type="time" id="hora-inicio" name="hora-inicio" class="hora-inicio" required>
+                            </div>
+                            <div class="form-group">
+                                <label for="data-fim">Data de Fim *</label>
+                                <input type="date" id="data-fim" name="data-fim" class="data-fim" required>
+                            </div>
+                            <div class="form-group">
+                                <label for="hora-fim">Hora de Fim *</label>
+                                <input type="time" id="hora-fim" name="hora-fim" class="hora-fim" required>
+                            </div>
                         </div>
                     </div>
+                    <button type="button" id="adicionar-periodo" class="add-period-btn" aria-label="Adicionar outro período de reserva">+ Adicionar período</button>
 
                     <div class="form-group">
                         <label for="requisitante">Requisitante *</label>
@@ -170,7 +176,10 @@
 
                     <div class="form-group">
                         <label for="email-requisitante">Email do Requisitante *</label>
-                        <input type="email" id="email-requisitante" name="email-requisitante" placeholder="nome@ualg.pt" required>
+                        <div class="email-domain-field">
+                            <input type="text" id="email-requisitante" name="email-requisitante" placeholder="nome" autocomplete="email" inputmode="email" required>
+                            <span class="email-domain-suffix" aria-hidden="true">@ualg.pt</span>
+                        </div>
                     </div>
 
                     <div class="form-group">

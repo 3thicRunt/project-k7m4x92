@@ -64,32 +64,104 @@ if (formRequisicao) {
         select.value = equipamentoParam;
     }
 
-    // 2. Bloqueia requisições para os próximos 3 dias
-    const inputInicio = document.getElementById("data-inicio");
-    const inputFim = document.getElementById("data-fim");
+    // 2. Configura períodos de reserva sequenciais
+    const periodosReserva = document.getElementById("periodos-reserva");
+    const adicionarPeriodoBtn = document.getElementById("adicionar-periodo");
 
     const hoje = new Date();
     const minData = new Date(hoje);
-    minData.setDate(hoje.getDate() + 3); 
+    minData.setDate(hoje.getDate() + 3); // antecedência mínima de 3 dias
     const minDataStr = minData.toISOString().split("T")[0];
 
-    inputInicio.min = minDataStr;
-    inputFim.min = minDataStr;
+    function combinarDataHora(dataInput, horaInput) {
+        if (!dataInput.value) return "";
+        return `${dataInput.value}T${horaInput.value || "00:00"}`;
+    }
 
-    // 3. Garante que a data de fim nunca é anterior à de início
-    inputInicio.addEventListener("change", function () {
-        inputFim.min = inputInicio.value;
-        if (inputFim.value && inputFim.value < inputInicio.value) {
-            inputFim.value = inputInicio.value;
-        }
+    function atualizarRestricoesPeriodos() {
+        const periodos = Array.from(periodosReserva.querySelectorAll("[data-periodo]"));
+
+        periodos.forEach(function (periodo, indice) {
+            const dataInicio = periodo.querySelector(".data-inicio");
+            const horaInicio = periodo.querySelector(".hora-inicio");
+            const dataFim = periodo.querySelector(".data-fim");
+            const horaFim = periodo.querySelector(".hora-fim");
+
+            const fimAnteriorData = indice > 0
+                ? periodos[indice - 1].querySelector(".data-fim").value
+                : "";
+
+            const dataMinimaInicio = fimAnteriorData || minDataStr;
+
+            dataInicio.min = dataMinimaInicio;
+            if (dataInicio.value && dataInicio.value < dataMinimaInicio) {
+                dataInicio.value = "";
+            }
+
+            dataFim.min = dataInicio.value || dataMinimaInicio;
+            if (dataFim.value && dataInicio.value && dataFim.value < dataInicio.value) {
+                dataFim.value = dataInicio.value;
+            }
+
+            // Se início e fim forem no mesmo dia, a hora de fim tem de ser depois da hora de início
+            if (dataInicio.value && dataFim.value && dataInicio.value === dataFim.value) {
+                if (horaFim.value && horaInicio.value && horaFim.value <= horaInicio.value) {
+                    horaFim.value = "";
+                }
+            }
+        });
+    }
+
+    function configurarPeriodo(periodo) {
+        periodo.querySelector(".data-inicio").addEventListener("change", atualizarRestricoesPeriodos);
+        periodo.querySelector(".data-fim").addEventListener("change", atualizarRestricoesPeriodos);
+        periodo.querySelector(".hora-inicio").addEventListener("change", atualizarRestricoesPeriodos);
+        periodo.querySelector(".hora-fim").addEventListener("change", atualizarRestricoesPeriodos);
+    }
+
+    configurarPeriodo(periodosReserva.querySelector("[data-periodo]"));
+    atualizarRestricoesPeriodos();
+
+    adicionarPeriodoBtn.addEventListener("click", function () {
+        const numeroPeriodo = periodosReserva.querySelectorAll("[data-periodo]").length + 1;
+        const periodo = document.createElement("div");
+        periodo.className = "form-row booking-period";
+        periodo.dataset.periodo = "";
+        periodo.innerHTML = `
+            <div class="form-group">
+                <label for="data-inicio-${numeroPeriodo}">Start Date *</label>
+                <input type="date" id="data-inicio-${numeroPeriodo}" name="data-inicio-${numeroPeriodo}" class="data-inicio" required>
+            </div>
+            <div class="form-group">
+                <label for="hora-inicio-${numeroPeriodo}">Start Time *</label>
+                <input type="time" id="hora-inicio-${numeroPeriodo}" name="hora-inicio-${numeroPeriodo}" class="hora-inicio" required>
+            </div>
+            <div class="form-group">
+                <label for="data-fim-${numeroPeriodo}">End Date *</label>
+                <input type="date" id="data-fim-${numeroPeriodo}" name="data-fim-${numeroPeriodo}" class="data-fim" required>
+            </div>
+            <div class="form-group">
+                <label for="hora-fim-${numeroPeriodo}">End Time *</label>
+                <input type="time" id="hora-fim-${numeroPeriodo}" name="hora-fim-${numeroPeriodo}" class="hora-fim" required>
+            </div>
+        `;
+        periodosReserva.appendChild(periodo);
+        configurarPeriodo(periodo);
+        atualizarRestricoesPeriodos();
     });
 
-    // 4. Envio do formulário
+    // 3. Submit the form
     formRequisicao.addEventListener("submit", async function (e) {
         e.preventDefault();
 
         const submitBtn = document.getElementById("submit-btn");
         const statusEl = document.getElementById("form-status");
+        const periodos = Array.from(periodosReserva.querySelectorAll("[data-periodo]")).map(function (periodo) {
+            return {
+                dataInicio: combinarDataHora(periodo.querySelector(".data-inicio"), periodo.querySelector(".hora-inicio")),
+                dataFim: combinarDataHora(periodo.querySelector(".data-fim"), periodo.querySelector(".hora-fim"))
+            };
+        });
 
         submitBtn.disabled = true;
         statusEl.textContent = "Submitting request...";
@@ -98,10 +170,11 @@ if (formRequisicao) {
         const dados = {
             equipamento: document.getElementById("equipamento").value,
             equipamentoTexto: document.getElementById("equipamento").selectedOptions[0].text,
-            dataInicio: inputInicio.value,
-            dataFim: inputFim.value,
+            dataInicio: periodos[0].dataInicio,
+            dataFim: periodos[0].dataFim,
+            periodos,
             requisitante: document.getElementById("requisitante").value,
-            emailRequisitante: document.getElementById("email-requisitante").value,
+            emailRequisitante: `${document.getElementById("email-requisitante").value.trim()}@ualg.pt`,
             responsavel: document.getElementById("responsavel").value,
             enquadramento: document.getElementById("enquadramento").value,
             observacoes: document.getElementById("observacoes").value
@@ -120,6 +193,10 @@ if (formRequisicao) {
                 statusEl.textContent = "Request submitted successfully!";
                 statusEl.className = "form-status success";
                 formRequisicao.reset();
+                Array.from(periodosReserva.querySelectorAll("[data-periodo]")).slice(1).forEach(function (periodo) {
+                    periodo.remove();
+                });
+                atualizarRestricoesPeriodos();
             } else {
                 throw new Error(resultado.erro || "Unknown Error");
             }
@@ -280,17 +357,17 @@ const searchIndex = [
     
     { nome: "Berthold TriStar 5 Microplate Reader", link: "paginas/tristar5.html", categoria: "Equipment", keywords: ["plate reader", "multiplate", "microplate", "absorbance", "spectrum", "spectrophoto", "fluorescence", "uv", "uv-vis", "luminescence", "berthold", "tristar"] },
 
-    { nome: "Bio-Rad CFX Opus 96 Dx Real-Time PCR", link: "pages/cfxopus.html", categoria: "Equipment", keywords: ["PCR", "real-time PCR", "qPCR", "RT-PCR", "RT-qPCR", "quantification", "nucleic acids", "DNA", "RNA", "gene expression", "amplification", "96 wells", "multiplex", "melting curve", "allele discrimination", "molecular biology", "molecular diagnostics", "Peltier", "CFX", "CFX Opus", "CFX Opus 96 Dx", "Bio-Rad"] },
+    { nome: "Bio-Rad CFX Opus 96 Dx Real-Time PCR", link: "paginas/cfxopus.html", categoria: "Equipment", keywords: ["PCR", "real-time PCR", "qPCR", "RT-PCR", "RT-qPCR", "quantification", "nucleic acids", "DNA", "RNA", "gene expression", "amplification", "96 wells", "multiplex", "melting curve", "allele discrimination", "molecular biology", "molecular diagnostics", "Peltier", "CFX", "CFX Opus", "CFX Opus 96 Dx", "Bio-Rad"] },
 
-    { nome: "Bio-Rad ChemiDoc Gel Imaging System", link: "pages/chemidoc.html", categoria: "Equipment", keywords: ["gel scanner", "gel imaging", "gel documentation", "gel electrophoresis", "electrophoresis", "gels", "agarose gels", "polyacrylamide gels", "Western blot", "Western blotting", "chemiluminescence", "CCD", "densitometry", "densitometric analysis", "Image Lab", "Bio-Rad", "ChemiDoc"] },
+    { nome: "Bio-Rad ChemiDoc Gel Imaging System", link: "paginas/chemidoc.html", categoria: "Equipment", keywords: ["gel scanner", "gel imaging", "gel documentation", "gel electrophoresis", "electrophoresis", "gels", "agarose gels", "polyacrylamide gels", "Western blot", "Western blotting", "chemiluminescence", "CCD", "densitometry", "densitometric analysis", "Image Lab", "Bio-Rad", "ChemiDoc"] },
 
     { nome: "DGPS Trimble R8s", link: "paginas/tr8s.html", categoria: "Equipment", keywords: ["gps", "topography", "geolocation", "trimble"] },
 
     { nome: "DGPS Trimble R12i", link: "paginas/tr12i.html", categoria: "Equipment", keywords: ["gps", "topography", "geolocation", "trimble"] },
 
-    { nome: "DJI Mavic 2 Pro Drone", link: "pages/mavic2.html", categoria: "Equipment", keywords: ["drone", "UAV", "UAS", "unmanned aerial vehicle", "aerial imaging", "aerial photography", "aerial video", "aerial surveying", "environmental monitoring", "mapping", "photogrammetry", "cartography", "GIS", "GNSS", "GPS", "gimbal", "3-axis", "Hasselblad", "20 MP", "Mavic 2", "Mavic 2 Pro", "DJI"] },
+    { nome: "DJI Mavic 2 Pro Drone", link: "paginas/mavic2.html", categoria: "Equipment", keywords: ["drone", "UAV", "UAS", "unmanned aerial vehicle", "aerial imaging", "aerial photography", "aerial video", "aerial surveying", "environmental monitoring", "mapping", "photogrammetry", "cartography", "GIS", "GNSS", "GPS", "gimbal", "3-axis", "Hasselblad", "20 MP", "Mavic 2", "Mavic 2 Pro", "DJI"] },
 
-    { nome: "DJI P4 Multispectral Drone", link: "pages/p4multi.html", categoria: "Equipment", keywords: ["drone", "UAV", "UAS", "multispectral", "multispectral imaging", "RGB", "NDVI", "NDRE", "GNDVI", "vegetation", "habitats", "environmental monitoring", "agriculture", "precision agriculture", "mapping", "cartography", "photogrammetry", "GIS", "RTK", "GNSS", "GPS", "red", "red edge", "near infrared", "NIR", "450 nm", "560 nm", "650 nm", "730 nm", "840 nm", "P4 Multispectral", "Phantom 4 Multispectral", "DJI"] },
+    { nome: "DJI P4 Multispectral Drone", link: "paginas/p4multi.html", categoria: "Equipment", keywords: ["drone", "UAV", "UAS", "multispectral", "multispectral imaging", "RGB", "NDVI", "NDRE", "GNDVI", "vegetation", "habitats", "environmental monitoring", "agriculture", "precision agriculture", "mapping", "cartography", "photogrammetry", "GIS", "RTK", "GNSS", "GPS", "red", "red edge", "near infrared", "NIR", "450 nm", "560 nm", "650 nm", "730 nm", "840 nm", "P4 Multispectral", "Phantom 4 Multispectral", "DJI"] },
 
     { nome: "ECHO ER Respirometer", link: "paginas/echoer.html", categoria: "Equipment", keywords: ["Echo", "ER Series", "Respirometer", "respirometry", "biological activity", "oxygen", "carbon dioxide", "CO2", "methane", "sulfide", "ammonia", "CH4", "H2S", "H2", "hydrogen", "NH3", "ammonia", "O2", "biodegradation", "biodegradability", "aerobic", "anaerobic", "plastic"] },
 
@@ -306,13 +383,17 @@ const searchIndex = [
 
     { nome: "Gyrozen GZ-2236R Centrifuge", link: "paginas/gyrozen.html", categoria: "Equipment", keywords: ["centrifuge", "centrifugation", "sample separation", "samples", "biomass", "sediments", "Falcon tubes", "50 mL Falcon", "250 mL bottles", "50 mL", "250 mL", "refrigerated", "refrigeration", "phase separation", "Gyrozen", "GZ-2236R"] },
 
+    { nome: "Hach HQ2100 Multiparameter Probe", link: "paginas/hq2100.html", categoria: "Equipment", keywords: ["probe", "multiparameter", "hach", "hq2100", "sensor", "pH", "ORP", "redox", "conductivity", "temperature", "dissolved oxygen", "salinity", "TDS", "total dissolved solids", "resistivity"] },
+
     { nome: "Hanna HI98594 Multiparameter Probe", link: "paginas/hi98594.html", categoria: "Equipment", keywords: ["probe", "multiparameter", "hanna", "sensor", "temperature", "conductivity", "salinity", "dissolved oxygen", "pH", "ORP", "redox", "turbidity", "tds", "total dissolved solids", "resistivity", "density"] },
+
+    { nome: "JFE Advantech Infinity AWH-USB Wave Height Meter", link: "paginas/infinitywh.html", categoria: "Equipment", keywords: ["pressure transducer", "JFE Advantech", "Infinity AWH-USB", "InfinityWH", "pressure sensor", "pressure", "water level", "depth", "hydrostatic pressure", "monitoring"] },
 
     { nome: "Labbox OVF Ventilated Oven", link: "paginas/ovf.html", categoria: "Equipment", keywords: ["oven", "drying oven", "ventilated oven", "drying", "heating", "thermal treatment", "forced air circulation", "hot air", "temperature", "incubation", "laboratory", "Labbox", "OVF"] },
 
     { nome: "Malvern Mastersizer 3000 Particle Size Analyzer", link: "paginas/malvern.html", categoria: "Equipment", keywords: ["particle size", "particle sizing", "particle size distribution", "particles", "laser diffraction", "sediments", "soils", "microalgae", "biomass", "environmental particles", "D10", "D50", "D90", "Hydro EV", "wet dispersion", "Malvern", "Malvern Panalytical", "Mastersizer 3000"] },
 
-    { nome: "MaXterile 60 Autoclave", link: "paginas/wac60.html", categoria: "Equipment", keywords: ["sterilize", "sterilization", "moist heat", "autoclave", "daihan"] },
+    { nome: "Maxterile 60 Autoclave", link: "paginas/maxterile60.html", categoria: "Equipment", keywords: ["autoclave", "Maxterile 60", "sterilization", "sterilisation", "sterilizer", "steam", "pressure", "laboratory"] },
 
     { nome: "Meling Biomedical -80°C Ultra-Low Temperature Freezer", link: "paginas/meling80.html", categoria: "Equipment", keywords: ["ultra-low temperature freezer", "ULT freezer", "ultra-low freezer", "-80 freezer", "-80°C", "ULT", "ultra-low temperature", "cold storage", "sample storage", "biological samples", "reagents", "extracts", "cultures", "biomass", "Meling", "Meling Biomedical", "DW-HL678HC"] },
 
@@ -322,19 +403,23 @@ const searchIndex = [
 
     { nome: "SEAL AQ400 Nutrient Analyzer", link: "paginas/SEAL_AQ400.html", categoria: "Equipment", keywords: ["nutrients", "nitrates", "nitrites", "ammonia", "phosphates", "silicates", "NH4", "NO3", "NO2", "PO4", "SiO2", "spectrophoto", "seal", "aq400"] },
 
+    { nome: "SonTek/YSI Triton Acoustic Doppler Velocimeter", link: "paginas/triton.html", categoria: "Equipment", keywords: ["acoustic Doppler velocimeter", "SonTek", "YSI", "Triton", "ADV", "water velocity", "flow velocity", "current", "flow", "water", "hydrodynamics"] },
+
     { nome: "Thermolyne F6020C-33 Muffle Furnace", link: "paginas/f6020c.html", categoria: "Equipment", keywords: ["muffle", "muffle furnace", "furnace", "laboratory furnace", "calcination", "incineration", "thermal treatment", "heating", "ash", "organic matter", "gravimetric analysis", "Thermolyne", "F6020C-33"] },
 
     { nome: "Thermo Scientific TDE Series -80°C Ultra-Low Temperature Freezer", link: "paginas/tdeseries80.html", categoria: "Equipment", keywords: ["ultra-low temperature freezer", "ULT freezer", "ultra-low freezer", "-80 freezer", "-80°C", "ULT", "ultra-low temperature", "TDE", "TDE Series", "Thermo Scientific", "Thermo Fisher", "cold storage", "sample storage", "biological samples", "reagents", "cultures", "cryopreservation", "temperature-controlled storage"] },
 
     { nome: "Thermo Scientific TSX Series -80°C Ultra-Low Temperature Freezer", link: "paginas/tsxseries80.html", categoria: "Equipment", keywords: ["ultra-low temperature freezer", "ULT freezer", "ultra-low freezer", "-80 freezer", "-80°C", "ULT", "ultra-low temperature", "TSX", "TSX Series", "V-drive", "Thermo Scientific", "Thermo Fisher", "cold storage", "sample storage", "biological samples", "reagents", "cultures", "cryopreservation", "temperature-controlled storage", "Instrument Connect"] },
 
-    { nome: "Thermo Scientific UltiMate 3000 UHPLC", link: "pages/ultimate3000.html", categoria: "Equipment", keywords: ["UHPLC", "HPLC", "chromatography", "liquid chromatography", "high performance liquid chromatography", "high-performance liquid chromatography", "liquid chromatograph", "analytical chromatography", "chromatographic separation", "quantitative analysis", "qualitative analysis", "compound identification", "organic compounds", "metabolites", "pharmaceuticals", "proteins", "peptides", "environmental samples", "biological samples", "DAD", "FLD", "RI", "MS", "MS/MS", "mass spectrometry", "UV detector", "fluorescence detector", "refractive index detector", "Thermo Scientific", "Thermo Fisher", "Dionex", "UltiMate 3000", "Ultimate 3000"] },
+    { nome: "Thermo Scientific UltiMate 3000 UHPLC", link: "paginas/ultimate3000.html", categoria: "Equipment", keywords: ["UHPLC", "HPLC", "chromatography", "liquid chromatography", "high performance liquid chromatography", "high-performance liquid chromatography", "liquid chromatograph", "analytical chromatography", "chromatographic separation", "quantitative analysis", "qualitative analysis", "compound identification", "organic compounds", "metabolites", "pharmaceuticals", "proteins", "peptides", "environmental samples", "biological samples", "DAD", "FLD", "RI", "MS", "MS/MS", "mass spectrometry", "UV detector", "fluorescence detector", "refractive index detector", "Thermo Scientific", "Thermo Fisher", "Dionex", "UltiMate 3000", "Ultimate 3000"] },
 
-    { nome: "TOH Echotrac CV100 Echo Sounder", link: "pages/echotrac.html", categoria: "Equipment", keywords: ["echo sounder", "echosounder", "single beam", "single-beam", "bathymetry", "marine bathymetry", "coastal bathymetry", "depth", "seafloor", "riverbed", "sediments", "seafloor mapping", "hydrographic surveying", "hydrography", "coastal monitoring", "environmental monitoring", "sonar", "Echotrac", "CV 100", "Echotrac CV 100", "Teledyne"] },
+    { nome: "TOH Echotrac CV100 Echo Sounder", link: "paginas/echotrac.html", categoria: "Equipment", keywords: ["echo sounder", "echosounder", "single beam", "single-beam", "bathymetry", "marine bathymetry", "coastal bathymetry", "depth", "seafloor", "riverbed", "sediments", "seafloor mapping", "hydrographic surveying", "hydrography", "coastal monitoring", "environmental monitoring", "sonar", "Echotrac", "CV 100", "Echotrac CV 100", "Teledyne"] },
 
     { nome: "VisiScope IT600 FLD Fluorescence Microscope", link: "paginas/visiscope.html", categoria: "Equipment", keywords: ["microscope", "microscopy", "fluorescence", "fluorescence microscopy", "brightfield", "darkfield", "phase contrast", "fluorophores", "FITC", "GFP", "YFP", "DAPI", "Hoechst", "Rhodamine", "TRITC", "Texas Red", "cells", "microalgae", "microorganisms", "cell biology", "VisiScope", "IT600 FLD", "VWR"] },
 
     { nome: "VWR LAG 314i Precision Balance", link: "paginas/bvwr.html", categoria: "Equipment", keywords: ["balance", "precision", "precision balance", "analytical balance", "weighing", "mass", "scale", "310 g", "0.1 mg", "internal calibration", "GLP", "formulation", "totalization", "parts counting", "VWR", "LAG 314i"] },
+
+    { nome: "VWR pHenomenal OX 4110 H Dissolved Oxygen Probe", link: "paginas/ox4110h.html", categoria: "Equipment", keywords: ["probe", "dissolved oxygen", "VWR", "pHenomenal", "OX 4110 H", "sensor", "oxygen", "DO", "water", "water quality"] },
 
     { nome: "YSI EXO2 Multiparameter Probe", link: "paginas/exo2.html", categoria: "Equipment", keywords: ["probe", "multiparameter", "ysi", "sensor", "temperature", "conductivity", "salinity", "dissolved oxygen", "pH", "ORP", "redox", "turbidity", "chlorophyll", "phycocyanin", "phycoerythrin", "exo", "fdom", "cdom"] },
 

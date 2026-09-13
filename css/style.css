@@ -131,6 +131,7 @@ header{
 
 .logo img{
     height: 40px;
+    padding-top: 10px;
 }
 
 
@@ -144,6 +145,24 @@ header{
 
     display: flex;
     gap: 30px;
+}
+
+.scheduling-navbar {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+}
+
+.scheduling-navbar a {
+    color: var(--header-txt);
+    font-family: 'Fira Sans', sans-serif;
+    font-size: 14px;
+    font-weight: 500;
+    text-decoration: none;
+}
+
+.scheduling-navbar a:hover {
+    color: var(--header-hv);
 }
 
 
@@ -520,7 +539,7 @@ body.dark-mode a.lang-switch {
 
 
 /* MEDIA QUERY — ativa o comportamento mobile */
-@media (max-width: 1050px) {
+@media (max-width: 1150px) {
 
     .menu-toggle {
         display: flex;
@@ -667,6 +686,53 @@ body.dark-mode a.lang-switch {
 
 
 
+.notice{
+    position: center;
+    flex: 1;
+    min-height: 20px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    padding: 20px 20px;
+    color: var(--accent-color);
+}
+
+.notice-content{
+
+    background-color: var(--hero-bg);
+
+    padding: 40px;
+    width: 100%;
+    max-width: 850px;
+    border-radius: 20px;
+
+    backdrop-filter: blur(2px);
+
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+
+}
+
+.notice .notice-content h1{
+    font-size: 50px;
+    margin-bottom: 20px;
+}
+
+.notice-content p{
+    font-size: 18px;
+    line-height: 1.5;
+    margin-bottom: 30px;
+    margin-top: 0px;
+    text-align: justify;
+}
+
+
+
+
+
 
 .slide-outer {
     display: flex;
@@ -723,11 +789,6 @@ body.dark-mode a.lang-switch {
 
 }
 
-.slide-txt p {
-
-    hyphens: auto;
-
-}
 
 /* SETAS — transparentes, sobrepostas ao cartão, nas margens */
 .slide-arrow {
@@ -951,6 +1012,17 @@ body.dark-mode a.lang-switch {
     margin-bottom: 30px;
     text-align: justify;
     font-size: 18px;
+}
+
+.drone-notice,
+.equipment-notice {
+    margin: 20px 0;
+    padding: 14px 16px;
+    border-left: 4px solid var(--header-hv);
+    border-radius: 6px;
+    background: var(--details-bg);
+    color: var(--details-l);
+    font-weight: 600;
 }
 
 .equipment-description{
@@ -1695,6 +1767,38 @@ details a {
     flex: 1;
 }
 
+.selected-equipment {
+    margin-top: 12px;
+    color: var(--header-hv);
+    font-size: 18px;
+    font-weight: 600;
+}
+
+.booking-periods {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+}
+
+.add-period-btn {
+    align-self: flex-start;
+    padding: 8px 12px;
+    border: 1px solid var(--table-bo);
+    border-radius: 8px;
+    background-color: var(--table-bg);
+    color: var(--details-l);
+    font-family: 'Fira Sans', sans-serif;
+    font-size: 14px;
+    font-weight: 600;
+    cursor: pointer;
+}
+
+.add-period-btn:hover,
+.add-period-btn:focus-visible {
+    outline: 2px solid var(--header-hv);
+    outline-offset: 2px;
+}
+
 .form-group {
     display: flex;
     flex-direction: column;
@@ -1727,6 +1831,31 @@ details a {
 .form-group select:focus,
 .form-group textarea:focus {
     outline: 2px solid var(--header-hv);
+}
+
+.email-domain-field {
+    display: flex;
+    align-items: stretch;
+}
+
+.email-domain-field input {
+    flex: 1;
+    min-width: 0;
+    border-top-right-radius: 0;
+    border-bottom-right-radius: 0;
+}
+
+.email-domain-suffix {
+    display: flex;
+    align-items: center;
+    padding: 10px 12px;
+    border: 1px solid var(--table-bo);
+    border-left: none;
+    border-radius: 0 8px 8px 0;
+    background-color: var(--table-bg);
+    color: var(--details-l);
+    font-size: 15px;
+    white-space: nowrap;
 }
 
 .submit-btn {
