@@ -3,9 +3,9 @@ function doPost(e) {
     const dados = JSON.parse(e.postData.contents);
 
     const emailIntroduzido = String(dados.emailRequisitante || "").trim();
-    const emailRequisitante = emailIntroduzido.endsWith("@ualg.pt")
-      ? emailIntroduzido
-      : `${emailIntroduzido}@ualg.pt`;
+    const emailRequisitante = emailIntroduzido.includes("@")
+    ? emailIntroduzido
+    : `${emailIntroduzido}@ualg.pt`;
 
     const periodos = Array.isArray(dados.periodos) && dados.periodos.length
       ? dados.periodos

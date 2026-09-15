@@ -13,6 +13,11 @@ const equipamentosAgendamento = {
 
 const formAgendamento = document.getElementById("form-agendamento");
 
+function normalizarEmailCliente(valor) {
+    const texto = String(valor || "").trim();
+    return texto.includes("@") ? texto : `${texto}@ualg.pt`;
+}
+
 function enviarAgendamentoPorJsonp(dados) {
     return new Promise(function (resolve, reject) {
         const callback = `equipmentHubBooking_${Date.now()}_${Math.random().toString(36).slice(2)}`;
@@ -127,7 +132,7 @@ equipamentoSelect.addEventListener("change", atualizarLinkIdioma);
         equipamento: chaveEquipamento,
         equipamentoTexto: equipamentoEscolhido[emIngles ? "en" : "pt"],
         requisitante: document.getElementById("requisitante").value.trim(),
-        emailRequisitante: `${document.getElementById("email-requisitante").value.trim()}@ualg.pt`,
+        emailRequisitante: `${document.getElementById("email-requisitante").value.trim()}@ualg.pt`,   // <-- linha antiga
         dataInicio: inicio.value,
         dataFim: fim.value
     };
