@@ -151,6 +151,13 @@ if (formRequisicao) {
     });
 
     // 3. Submit the form
+    
+    function normalizarEmailCliente(valor) {
+        const texto = String(valor || "").trim();
+        return texto.includes("@") ? texto : `${texto}@ualg.pt`;
+    }
+    
+    
     formRequisicao.addEventListener("submit", async function (e) {
         e.preventDefault();
 
@@ -174,7 +181,7 @@ if (formRequisicao) {
             dataFim: periodos[0].dataFim,
             periodos,
             requisitante: document.getElementById("requisitante").value,
-            emailRequisitante: `${document.getElementById("email-requisitante").value.trim()}@ualg.pt`,
+            emailRequisitante: normalizarEmailCliente(document.getElementById("email-requisitante").value),
             responsavel: document.getElementById("responsavel").value,
             enquadramento: document.getElementById("enquadramento").value,
             observacoes: document.getElementById("observacoes").value

@@ -133,7 +133,7 @@ function converterDataHora(valor) {
 
 function normalizarEmail(email) {
   const valor = String(email || "").trim();
-  return valor.endsWith("@ualg.pt") ? valor : `${valor}@ualg.pt`;
+  return valor.includes("@") ? valor : `${valor}@ualg.pt`;
 }
 
 function formatarDataHora(data) {
