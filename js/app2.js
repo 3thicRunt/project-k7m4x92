@@ -67,96 +67,118 @@ if (formAgendamento) {
             success: "Agendamento criado com sucesso. Receberá um email de confirmação em breve.",
             error: "Não foi possível criar o agendamento. O período selecionado pode já não estar disponível; verifique o calendário e tente novamente."
         };
+
     const params = new URLSearchParams(window.location.search);
     const equipamentoId = params.get("equipamento");
     const equipamento = equipamentosAgendamento[equipamentoId];
     const equipamentoSelect = document.getElementById("equipamento");
 
-// Preenche o <select> dinamicamente a partir de equipamentosAgendamento
-Object.keys(equipamentosAgendamento).forEach(function (chave) {
-    const opcao = document.createElement("option");
-    opcao.value = chave;
-    opcao.textContent = equipamentosAgendamento[chave][emIngles ? "en" : "pt"];
-    equipamentoSelect.appendChild(opcao);
-});
+    // ---- ISTO ESTAVA EM FALTA ----
+    const inicio = document.getElementById("data-inicio");
+    const fim = document.getElementById("data-fim");
+    const statusEl = document.getElementById("form-status");
+    const submitBtn = document.getElementById("submit-btn");
 
-// Se veio um ?equipamento= válido na URL, pré-seleciona-o
-if (equipamento) {
-    equipamentoSelect.value = equipamentoId;
-}
+    function agoraLocal() {
+        const agora = new Date();
+        agora.setMinutes(agora.getMinutes() - agora.getTimezoneOffset());
+        return agora.toISOString().slice(0, 16);
+    }
 
-function atualizarLinkIdioma() {
-    const langSwitch = document.querySelector(".lang-switch");
-    const base = langSwitch.href.split("?")[0];
-    langSwitch.href = equipamentoSelect.value
-        ? `${base}?equipamento=${encodeURIComponent(equipamentoSelect.value)}`
-        : base;
-}
+    function atualizarLimites() {
+        inicio.min = agoraLocal();
+        fim.min = inicio.value || inicio.min;
+        if (fim.value && inicio.value && fim.value <= inicio.value) {
+            fim.value = "";
+        }
+    }
+    // ---- FIM DO QUE ESTAVA EM FALTA ----
 
-atualizarLinkIdioma();
-equipamentoSelect.addEventListener("change", atualizarLinkIdioma);
+    // Preenche o <select> dinamicamente a partir de equipamentosAgendamento
+    Object.keys(equipamentosAgendamento).forEach(function (chave) {
+        const opcao = document.createElement("option");
+        opcao.value = chave;
+        opcao.textContent = equipamentosAgendamento[chave][emIngles ? "en" : "pt"];
+        equipamentoSelect.appendChild(opcao);
+    });
+
+    // Se veio um ?equipamento= válido na URL, pré-seleciona-o
+    if (equipamento) {
+        equipamentoSelect.value = equipamentoId;
+    }
+
+    function atualizarLinkIdioma() {
+        const langSwitch = document.querySelector(".lang-switch");
+        const base = langSwitch.href.split("?")[0];
+        langSwitch.href = equipamentoSelect.value
+            ? `${base}?equipamento=${encodeURIComponent(equipamentoSelect.value)}`
+            : base;
+    }
+
+    atualizarLinkIdioma();
+    equipamentoSelect.addEventListener("change", atualizarLinkIdioma);
 
     atualizarLimites();
     inicio.addEventListener("change", atualizarLimites);
     fim.addEventListener("change", atualizarLimites);
 
     formAgendamento.addEventListener("submit", async function (evento) {
-    evento.preventDefault();
+        evento.preventDefault();
 
-    const chaveEquipamento = equipamentoSelect.value;
-    const equipamentoEscolhido = equipamentosAgendamento[chaveEquipamento];
+        const chaveEquipamento = equipamentoSelect.value;
+        const equipamentoEscolhido = equipamentosAgendamento[chaveEquipamento];
 
-    if (!equipamentoEscolhido) {
-        statusEl.textContent = textos.unknownEquipment;
-        statusEl.className = "form-status error";
-        return;
-    }
-
-    if (fim.value <= inicio.value) {
-        statusEl.textContent = textos.invalidPeriod;
-        statusEl.className = "form-status error";
-        return;
-    }
-
-    if (APPS_SCRIPT_AGENDAMENTO_URL.includes("COLE_AQUI")) {
-        statusEl.textContent = textos.configurationError;
-        statusEl.className = "form-status error";
-        return;
-    }
-
-    submitBtn.disabled = true;
-    statusEl.textContent = textos.submitting;
-    statusEl.className = "form-status";
-
-    const dados = {
-        equipamento: chaveEquipamento,
-        equipamentoTexto: equipamentoEscolhido[emIngles ? "en" : "pt"],
-        requisitante: document.getElementById("requisitante").value.trim(),
-        emailRequisitante: `${document.getElementById("email-requisitante").value.trim()}@ualg.pt`,   // <-- linha antiga
-        dataInicio: inicio.value,
-        dataFim: fim.value
-    };
-
-    try {
-        const resultado = await enviarAgendamentoPorJsonp(dados);
-
-        if (!resultado.sucesso) {
-            statusEl.textContent = resultado.erro || textos.error;
+        if (!equipamentoEscolhido) {
+            statusEl.textContent = textos.unknownEquipment;
             statusEl.className = "form-status error";
             return;
         }
 
-        statusEl.textContent = textos.success;
-        statusEl.className = "form-status success";
-        formAgendamento.reset();
-        atualizarLimites();
-        atualizarLinkIdioma();
-    } catch (erro) {
-        statusEl.textContent = erro.message ? `${textos.error} (${erro.message})` : textos.error;
-        statusEl.className = "form-status error";
-        console.error(erro);
-    } finally {
-        submitBtn.disabled = false;
-    }
-});
+        if (fim.value <= inicio.value) {
+            statusEl.textContent = textos.invalidPeriod;
+            statusEl.className = "form-status error";
+            return;
+        }
+
+        if (APPS_SCRIPT_AGENDAMENTO_URL.includes("COLE_AQUI")) {
+            statusEl.textContent = textos.configurationError;
+            statusEl.className = "form-status error";
+            return;
+        }
+
+        submitBtn.disabled = true;
+        statusEl.textContent = textos.submitting;
+        statusEl.className = "form-status";
+
+        const dados = {
+            equipamento: chaveEquipamento,
+            equipamentoTexto: equipamentoEscolhido[emIngles ? "en" : "pt"],
+            requisitante: document.getElementById("requisitante").value.trim(),
+            emailRequisitante: normalizarEmailCliente(document.getElementById("email-requisitante").value),
+            dataInicio: inicio.value,
+            dataFim: fim.value
+        };
+
+        try {
+            const resultado = await enviarAgendamentoPorJsonp(dados);
+
+            if (!resultado.sucesso) {
+                statusEl.textContent = resultado.erro || textos.error;
+                statusEl.className = "form-status error";
+                return;
+            }
+
+            statusEl.textContent = textos.success;
+            statusEl.className = "form-status success";
+            formAgendamento.reset();
+            atualizarLimites();
+            atualizarLinkIdioma();
+        } catch (erro) {
+            statusEl.textContent = erro.message ? `${textos.error} (${erro.message})` : textos.error;
+            statusEl.className = "form-status error";
+            console.error(erro);
+        } finally {
+            submitBtn.disabled = false;
+        }
+    });
 }
