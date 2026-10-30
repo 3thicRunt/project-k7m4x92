@@ -2172,6 +2172,16 @@ body.dark-mode .footer-logos .logo-dark {
 
 }
 
+.footer-credit{
+    
+    align-items: center;
+    color: var(--text-color);
+    text-align: center;
+    font-size: 10px;
+    margin-top: 10px;
+
+}
+
 
 
 
